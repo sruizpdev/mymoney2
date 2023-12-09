@@ -2,13 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-new',
+  selector: 'app-new-income',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './new-income.component.html',
   styleUrl: './new-income.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NewComponent { }
+export class NewIncomeComponent {}
