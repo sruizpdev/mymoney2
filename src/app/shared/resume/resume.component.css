@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+.title{
+  border: 1px solid red;
+  height: 10px;
+}
+.resume__container{
+  margin: 5px;
+  border: 1px solid var(--stone);
+  height: 200px;
+  background-color: redk;
+}

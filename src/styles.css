@@ -8,12 +8,16 @@
   font-size: 13px;
 }
 
+body {
+  background-color: #f7f8f8;
+}
+
 :root {
 
 
-  --green: #163020;
+  --green: #214b39;
   --light-green: #304D30;
   --stone: #B6C4B6;
-  --light-stone: #B6C4B6;
+  --light-stone: #EEF0E5;
 
 }
