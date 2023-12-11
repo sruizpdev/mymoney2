@@ -1,22 +1,45 @@
 :host {
   display: block;
 }
-nav{
+.top__container{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  
+}
+.avatar__img{
+  width: 50px;
+  border-radius: 50%;
+  text-align: left;
+}
+.logout__icon{
+  width: 30px;
+}
+nav{
+   padding: 5px;
+  
   margin-top: 10px;
 }
-ul{
+
+ul {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
 }
-li{
+
+li {
   list-style: none;
 }
-a{
+
+.btn{
   text-decoration: none;
   cursor: pointer;
+  background-color: var(--green);
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  color: white;
 }
-a:hover{
-  text-decoration: underline;
+
+.btn:hover {
+  background-color: var(--light-green)
 }
