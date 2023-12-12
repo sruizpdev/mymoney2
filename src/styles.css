@@ -9,15 +9,14 @@
 }
 
 body {
-  background-color: #f7f8f8;
+  background-color: var(--light-gray);
 }
 
 :root {
 
 
-  --green: #214b39;
-  --light-green: #304D30;
-  --stone: #B6C4B6;
-  --light-stone: #EEF0E5;
+  --green: #214530;
+  --gray:#EDEFEF;
+  --light-gray: #F8F9FB;
 
 }

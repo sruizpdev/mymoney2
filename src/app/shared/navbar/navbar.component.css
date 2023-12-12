@@ -1,51 +1,58 @@
 :host {
   display: block;
 }
-nav{
-  background-color: red;
+
+.general__container {
+  background-color: white;
+  padding-top: 10px;
 }
-.top__container{
+
+.top__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
-  background-color: red;
-  height: 10;
-  
-  
+  padding: 0 5px;
+  margin-bottom: 15px;
+
 }
-.avatar__img{
+
+.avatar__img {
   width: 50px;
   border-radius: 50%;
-  text-align: left;
 }
-.logout__icon{
+
+.logout__icon {
   width: 30px;
 }
-nav{
-   padding: 5px;
-  
-   
+
+.nav__container {
+  padding-bottom: 15px;
 }
 
 ul {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow: scroll;
 }
 
 li {
   list-style: none;
-}
-
-.btn{
+  flex: 1 0 auto;
+  margin: 0 5px;
   text-decoration: none;
   cursor: pointer;
-  background-color: var(--green);
-  padding: 10px 15px 10px 15px;
+  background-color: var(--light-gray);
+  padding: 8px 15px 8px 15px;
   border-radius: 5px;
-  color: white;
+  color: var(--green);
 }
 
-.btn:hover {
-  background-color: var(--light-green)
+li:hover {
+  background-color: var(--green);
+  color: white
+}
+
+.active {
+  color: white;
+  font-weight: bold; background-color: var(--green);
 }

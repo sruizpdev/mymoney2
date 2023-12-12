@@ -1,16 +1,27 @@
-<div class="top__container">
-  <div class="avatar">
-    <img class="avatar__img" src="/assets/ana.jpg" alt="User avatar" />
+<div class="general__container">
+  <div class="top__container">
+    <div class="avatar">
+      <img class="avatar__img" src="/assets/ana.jpg" alt="User avatar" />
+    </div>
+    <div class="logout__option">
+      <img
+        routerLink="/login"
+        class="logout__icon"
+        src="/assets/logout.svg"
+        alt="Logout"
+      />
+    </div>
   </div>
-  <div class="logout__option">
-    <a routerLink="/login"><img class="logout__icon" src="/assets/logout.svg" alt="Logout" /></a>
+  <div class="nav__container">
+    <nav>
+      <ul>
+        <li routerLink="/home" routerLinkActive="active">Inicio</li>
+        <li routerLink="/expenses" routerLinkActive="active">Gastos</li>
+        <li routerLink="/incomes" routerLinkActive="active">Ingresos</li>
+        <li routerLink="/options" routerLinkActive="active">Opciones</li>
+        <li routerLink="/home" routerLinkActive="active">Otra Opcion</li>
+        <li routerLink="/options" routerLinkActive="active">Otra más</li>
+      </ul>
+    </nav>
   </div>
 </div>
-<nav>
-  <ul>
-    <li><a class="btn" routerLink="/home">Inicio</a></li>
-    <li><a class="btn" routerLink="/expenses">Gastos</a></li>
-    <li><a class="btn" routerLink="/incomes">Ingresos</a></li>
-    <li><a class="btn" routerLink="/options">Opciones</a></li>
-  </ul>
-</nav>
