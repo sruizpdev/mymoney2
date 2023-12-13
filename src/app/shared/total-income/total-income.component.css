@@ -13,23 +13,24 @@
   margin-bottom: 10px;
   font-weight: bold;
 }
-.date{
+
+.date {
   margin-bottom: 10px;
 }
 
-.total{
+.total {
   font-weight: bold;
   font-size: 25px;
 }
+
 .resume {
   background-color: white;
   border: 1px solid var(--gray);
   border-radius: 5px;
   padding: 15px 5px 5px 5px;
-  width: 100%;
   height: 100px;
   background-image: url('/assets/resume.png');
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
 
