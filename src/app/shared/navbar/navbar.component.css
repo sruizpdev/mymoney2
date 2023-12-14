@@ -26,24 +26,31 @@
 }
 
 .nav__container {
-  padding-bottom: 15px;
+  padding: 10px 5px 10px 5px;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 ul {
   display: flex;
-  flex-wrap: nowrap;
-  overflow: scroll;
-  
+  overflow-x: hidden;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
 
 li {
+  scrollbar-width: none;
+  scroll-snap-align: start;
+  flex-shrink: 0;
   list-style: none;
-  flex: 1 0 auto;
   margin: 0 5px;
   text-decoration: none;
   cursor: pointer;
   background-color: var(--light-gray);
-  padding: 8px 15px 8px 15px;
+  padding: 8px 20px 8px 20px;
   border-radius: 5px;
   color: var(--green);
 }
@@ -55,5 +62,6 @@ li:hover {
 
 .active {
   color: white;
-  font-weight: bold; background-color: var(--green);
+  font-weight: bold;
+  background-color: var(--green);
 }
