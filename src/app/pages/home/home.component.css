@@ -14,9 +14,9 @@
   display: none;
 }
 .opt {
-  flex:0 0 90%;
+  flex:0 0 85%;
   /* scroll-snap-align: start; */
-  
+  margin-right: 15px;
   scrollbar-width: none;
   
 }
