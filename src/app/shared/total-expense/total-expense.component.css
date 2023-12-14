@@ -2,38 +2,52 @@
   display: block;
 }
 
-.resume__container {
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
 
-  margin: 10px 5px;
-
+.container__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .title {
-  margin-top: 20px;
-  margin-bottom: 10px;
   font-weight: bold;
+  color: var(--green);
 }
 
-.date {
-  margin-bottom: 10px;
+.txt {
+  font-size: 10px;
 }
 
-.total {
+.details {
+  color: green;
+}
+
+.total__quantity {
   font-weight: bold;
   font-size: 25px;
+  margin-bottom: 10px;
+
 }
 
-.resume {
+.container__data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
   background-color: white;
   border: 1px solid var(--gray);
   border-radius: 5px;
-  padding: 15px 5px 5px 5px;
+  padding: 10px;
+  width: 100%;
   height: 100px;
-  background-image: url('/assets/expense.png');
+  background-image: url('/assets/calculator.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
-  
-  
-
 }
