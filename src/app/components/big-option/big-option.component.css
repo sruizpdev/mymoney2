@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+img{
+  width: 35px;
+ 
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  background-color: white;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  height: 100px;
+  width: 150px;
+}
+.title{
+  font-weight: bold;
+  font-size: 18px;
+}
