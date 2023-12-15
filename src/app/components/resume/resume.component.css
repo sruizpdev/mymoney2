@@ -19,7 +19,7 @@
   color: var(--green);
 }
 
-.details {
+.more {
   color: green;
 }
 
@@ -32,18 +32,24 @@
 
 .container__data {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-
+  justify-content: space-between;
   background-color: white;
   border: 1px solid var(--gray);
   border-radius: 5px;
   padding: 10px;
   width: 100%;
   height: 100px;
-  background-image: url('/assets/calculator.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right;
+
+}
+
+.container__data__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.container__data__img img {
+  width: 80px;
+  height: 80px;
 }
