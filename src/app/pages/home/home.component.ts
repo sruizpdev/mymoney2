@@ -5,6 +5,7 @@ import { TotalExpenseComponent } from '../../components/total-expense/total-expe
 import { TotalIncomeComponent } from '../../components/total-income/total-income.component';
 import { BigOptionComponent } from '../../components/big-option/big-option.component';
 import { DayTransactionsComponent } from '../../components/day-transactions/day-transactions.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import { DayTransactionsComponent } from '../../components/day-transactions/day-
     TotalExpenseComponent,
     TotalIncomeComponent,
     BigOptionComponent,
-    DayTransactionsComponent
+    DayTransactionsComponent,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

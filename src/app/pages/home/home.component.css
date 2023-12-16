@@ -1,10 +1,12 @@
 :host {
   display: block;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
 }
+
 .container__main {
   display: flex;
   overflow-x: hidden;
@@ -13,11 +15,12 @@
   scrollbar-width: none;
   margin-bottom: 20px;
 }
-.container__options__title{
+
+.container__options__title {
   padding: 10px;
   font-weight: bold;
-  font-size: 18px;
 }
+
 .container__options {
   display: flex;
   overflow-x: hidden;
@@ -27,18 +30,21 @@
   margin-bottom: 30px;
   padding: 0 10px;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
-.container__main__opt{
+
+.container__main__opt {
   flex: 0 0 85%;
   /* scroll-snap-align: start; */
-  
+
   scrollbar-width: none;
 }
+
 .container__options__opt {
   flex: 0 0 35%;
- 
-  
+
+
   scrollbar-width: none;
 }
