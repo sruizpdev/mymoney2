@@ -14,10 +14,14 @@ import { LastMovementComponent } from '../../components/last-movement/last-movem
     ResumeComponent,
     TotalExpenseComponent,
     TotalIncomeComponent,
-    BigOptionComponent,LastMovementComponent
+    BigOptionComponent,
+    LastMovementComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class HomeComponent {
+ 
+ 
+}

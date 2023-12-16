@@ -2,34 +2,33 @@
   display: block;
 }
 
-.general__container {
+.container {
   background-color: white;
   margin-bottom: 20px;
 }
 
-.top__container {
+.container-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  
-
 }
 
-.avatar__img {
+.avatar-img {
   width: 50px;
   border-radius: 50%;
-  border:1px solid var(--green)
+  border: 1px solid var(--green)
 }
 
-.logout__icon {
+.logout-icon {
   width: 40px;
 }
 
-.nav__container {
+nav{
   padding: 10px;
   overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }

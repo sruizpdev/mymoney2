@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-big-option',
@@ -11,4 +11,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './big-option.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BigOptionComponent { }
+export class BigOptionComponent { 
+
+  @Input() image:string=''
+  @Input() txt:string=''
+  @Input() action:string=''
+  
+  
+}
