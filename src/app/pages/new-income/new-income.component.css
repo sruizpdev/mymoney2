@@ -1,21 +1,37 @@
 :host {
   display: block;
 }
-
+.error-msg{
+  background-color: red;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
 .container {
-  padding: 10px;
+  padding: 20px 10px;
 }
 
 .type {
   display: flex;
   justify-content: space-between;
-  
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+
+
+  margin-top: 5px;
 }
 
 .radio__option {
   opacity: 0;
   width: 0;
+  position: fixed;
+}
+
+.input-label {
+  font-weight: bold;
+  
 }
 
 .type__option label {
@@ -27,7 +43,6 @@
   width: 100px;
   height: 100px;
   padding: 10px;
-
   border: 1px solid var(--gray);
   border-radius: 5px;
 }
@@ -41,7 +56,6 @@
 } */
 
 .radio__option:checked+label {
-
   border: 2px solid var(--green);
 }
 
@@ -59,10 +73,26 @@
   border: 1px solid var(--gray);
   padding: 15px;
   font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .input-form:focus {
   outline: none;
   border: 2px solid var(--green);
+}
+
+button {
+  background-color: var(--green);
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+  border: none
+}
+
+button:hover {
+  background-color: var(--light-gray);
+  color: var(--green);
+  border: 1px solid var(--green);
 
 }
