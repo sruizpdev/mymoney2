@@ -54,7 +54,7 @@
 }
 
 .type__option label:hover {
-  background-color: var(--light-gray);
+  border: 1px solid var(--green);
 }
 
 /* .type__option input[type="radio"]:focus + label {

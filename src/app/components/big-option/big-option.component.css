@@ -17,6 +17,10 @@ img{
   height: 100px;
   width: 120px;
 }
+.container:hover{
+ 
+  border-color:var(--green)
+}
 .container__text{
   display: flex;
   flex-direction: column;

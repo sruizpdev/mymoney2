@@ -14,6 +14,7 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .container__options__title {
@@ -38,13 +39,10 @@
 .container__main__opt {
   flex: 0 0 85%;
   /* scroll-snap-align: start; */
-
   scrollbar-width: none;
 }
 
 .container__options__opt {
   flex: 0 0 35%;
-
-
   scrollbar-width: none;
 }
