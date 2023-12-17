@@ -5,7 +5,7 @@
     <p class="error-msg">Introduzca una cantidad</p>
     } @if (newIncomeForm.get('type')?.hasError('required') &&
     newIncomeForm.get('type')?.untouched) {
-        <label class="input-label" for="date">Selecciona el tipo de ingreso</label>
+        <label class="type-label" for="date">Selecciona el tipo de ingreso</label>
     } @if (newIncomeForm.get('date')?.hasError('required') &&
     newIncomeForm.get('date')?.touched) {
     <p class="error-msg">Introduzca una fecha</p>

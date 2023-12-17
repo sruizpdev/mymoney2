@@ -17,10 +17,11 @@
 .type {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+   
 
 
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .radio__option {
@@ -32,6 +33,10 @@
 .input-label {
   font-weight: bold;
   
+  
+}
+.type-label{
+  font-weight: bold;
 }
 
 .type__option label {
@@ -45,6 +50,7 @@
   padding: 10px;
   border: 1px solid var(--gray);
   border-radius: 5px;
+  
 }
 
 .type__option label:hover {
@@ -66,7 +72,7 @@
 
 .input-form {
   display: block;
-  margin: 5px 0px;
+  margin: 10px 0px;
   width: 100%;
   background-color: white;
   border-radius: 5px;
