@@ -1,3 +1,49 @@
 :host {
   display: block;
 }
+
+.container {
+  padding: 10px;
+}
+
+.type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio__option {
+  opacity: 0;
+  width: 0;
+}
+
+.type__option label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+}
+
+.type__option label:hover {
+  background-color: var(--light-gray);
+}
+
+/* .type__option input[type="radio"]:focus + label {
+    border: 2px solid var(--green);
+} */
+
+.radio__option:checked+label {
+
+  border: 2px solid var(--green);
+}
+
+.radio__option-img {
+  height: 50px;
+
+}
