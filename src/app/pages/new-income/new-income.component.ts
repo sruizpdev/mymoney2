@@ -21,7 +21,7 @@ export class NewIncomeComponent {
     date: new FormControl('2023-12-31', [Validators.required]),
 
     type: new FormControl('', [Validators.required]),
-    notes: new FormControl('', [Validators.required]),
+    notes: new FormControl(''),
   });
 
   onSubmit() {
