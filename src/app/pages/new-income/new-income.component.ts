@@ -18,9 +18,8 @@ import {
 export class NewIncomeComponent {
   newIncomeForm = new FormGroup({
     amount: new FormControl('', [Validators.required]),
-    day: new FormControl(''),
-    month: new FormControl(''),
-    year: new FormControl(''),
+    date: new FormControl('2023-12-31', [Validators.required]),
+
     type: new FormControl('', [Validators.required]),
     notes: new FormControl('', [Validators.required]),
   });
@@ -28,9 +27,8 @@ export class NewIncomeComponent {
   onSubmit() {
     const data = {
       amount: this.newIncomeForm.value.amount,
-      day: this.newIncomeForm.value.day?.trim(),
-      month: this.newIncomeForm.value.month?.trim(),
-      year: this.newIncomeForm.value.year?.trim(),
+      date: this.newIncomeForm.value.date,
+
       type: this.newIncomeForm.value.type,
       notes: this.newIncomeForm.value.notes?.trim(),
     };

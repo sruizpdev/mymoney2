@@ -15,8 +15,10 @@ body {
 :root {
 
 
-  --green: #214530; 
-  --gray:#EDEFEF;
+ 
+
+  --green: #214530;
+  --gray: #EDEFEF;
   --light-gray: #F8F9FB;
 
 }

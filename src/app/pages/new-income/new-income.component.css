@@ -9,6 +9,8 @@
 .type {
   display: flex;
   justify-content: space-between;
+  
+  margin-bottom: 50px;
 }
 
 .radio__option {
@@ -45,5 +47,22 @@
 
 .radio__option-img {
   height: 50px;
+
+}
+
+.input-form {
+  display: block;
+  margin: 5px 0px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  padding: 15px;
+  font-size: 15px;
+}
+
+.input-form:focus {
+  outline: none;
+  border: 2px solid var(--green);
 
 }

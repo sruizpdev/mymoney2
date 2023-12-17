@@ -1,36 +1,36 @@
 <div class="container">
     <form (ngSubmit)="onSubmit()" [formGroup]="newIncomeForm">
-       
-       
         <div class="type">
             <div class="type__option">
-                <input class="radio__option" type="radio" name="type" id="voucher" value="voucher" formControlName="type" checked>
+                <input class="radio__option" type="radio" name="type" id="voucher" value="voucher"
+                    formControlName="type" checked />
                 <label for="voucher">
-                    <img class="radio__option-img" src="/assets/coupon.png" alt="">
+                    <img class="radio__option-img" src="/assets/coupon.png" alt="" />
                     Voucher
                 </label>
             </div>
 
             <div class="type__option">
-                <input class="radio__option" type="radio" name="type" id="nómina" value="nómina" formControlName="type">
-                <label for="nómina"><img class="radio__option-img" src="/assets/salary.png" alt="">Nómina</label>
+                <input class="radio__option" type="radio" name="type" id="nómina" value="nómina"
+                    formControlName="type" />
+                <label for="nómina"><img class="radio__option-img" src="/assets/salary.png" alt="" />Nómina</label>
             </div>
             <div class="type__option">
-                <input class="radio__option" type="radio" name="type" id="otros" value="otros" formControlName="type">
-                <label for="otros"><img  class="radio__option-img" src="/assets/financial-freedom.png" alt="">Otros</label>
+                <input class="radio__option" type="radio" name="type" id="otros" value="otros" formControlName="type" />
+                <label for="otros"><img class="radio__option-img" src="/assets/financial-freedom.png"
+                        alt="" />Otros</label>
             </div>
         </div>
 
+        <input class="input-form" type="date" name="day" id="day" formControlName="day" value="2023-12-31" />
 
 
-
-        <label for="amount">Cantidad</label>
-        <input type="number" inputmode="numeric" id="amount" name="amount" formControlName="amount" class="input__form"
+        <input class="input-form" type="number" inputmode="numeric" id="amount" name="amount" formControlName="amount"
             placeholder="Ingrese la cantidad" />
 
-        <label for="notes">Notas</label>
-        <input type="text" id="notes" name="notes" formControlName="notes" class="input__form"
-            placeholder="Información adicional" />
+<label for="notes">Notas</label>
+        <input type="text" id="notes" name="notes" formControlName="notes" class="input-form"
+            placeholder="Información adicional (opcional)" />
 
         <div class="container__buttons">
             <button type="submit" [disabled]="!newIncomeForm.valid">Enviar</button>
@@ -41,6 +41,4 @@
             <label for="radio-option">Option 1</label>
         </div>
     </form>
-
-
 </div>
