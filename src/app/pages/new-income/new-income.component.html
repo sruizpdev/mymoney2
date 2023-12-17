@@ -4,14 +4,14 @@
     newIncomeForm.get('amount')?.touched) {
     <p class="error-msg">Introduzca una cantidad</p>
     } @if (newIncomeForm.get('type')?.hasError('required') &&
-    newIncomeForm.get('type')?.touched) {
-    <p class="error-msg">Seleccione un tipo de ingreso</p>
+    newIncomeForm.get('type')?.untouched) {
+        <label class="input-label" for="date">Selecciona el tipo de ingreso</label>
     } @if (newIncomeForm.get('date')?.hasError('required') &&
     newIncomeForm.get('date')?.touched) {
     <p class="error-msg">Introduzca una fecha</p>
     }
 
-    <label class="input-label" for="date">Tipo de ingreso</label>
+    
     <div class="type">
       <div class="type__option">
         <input
@@ -68,9 +68,9 @@
     <input
       class="input-form"
       type="date"
-      name="day"
-      id="day"
-      formControlName="day"
+      name="date"
+      id="date"
+      formControlName="date"
       value="2023-12-31"
     />
     <label class="input-label" for="amount">Cantidad</label>
