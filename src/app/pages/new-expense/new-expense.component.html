@@ -1,1 +1,205 @@
-<p>new-expense works!</p>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="newExpenseForm">
+    @if (newExpenseForm.get('date')?.hasError('required') &&
+    newExpenseForm.get('date')?.touched) {
+    <p class="error-msg">Introduzca una fecha</p>
+    }@if (newExpenseForm.get('amount')?.hasError('required') &&
+    newExpenseForm.get('amount')?.touched) {
+    <p class="error-msg">Introduzca una cantidad</p>
+    } @if (newExpenseForm.get('type')?.hasError('required') &&
+    newExpenseForm.get('type')?.untouched) {
+    <label class="type-label" for="date">Seleccione el tipo de gasto</label>
+    }
+
+    <div class="type">
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="comida"
+          value="comida"
+          formControlName="type"
+          checked
+        />
+        <label for="comida">
+          <img class="radio__option-img" src="/assets/grocery.png" alt="" />
+          Comida
+        </label>
+      </div>
+
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="gatos"
+          value="gatos"
+          formControlName="type"
+        />
+        <label for="gatos"
+          ><img
+            class="radio__option-img"
+            src="/assets/cooper.png"
+            alt="gatos"
+          />Gatos</label
+        >
+      </div>
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="ocio"
+          value="ocio"
+          formControlName="type"
+        />
+        <label for="ocio"
+          ><img
+            class="radio__option-img"
+            src="/assets/beer-mug.png"
+            alt="ocio"
+          />Ocio</label
+        >
+      </div>
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="otros"
+          value="otros"
+          formControlName="type"
+        />
+        <label for="otros"
+          ><img
+            class="radio__option-img"
+            src="/assets/open-box.png"
+            alt="otros"
+          />Otros</label
+        >
+      </div>
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="farmacia y salud"
+          value="farmacia y salud"
+          formControlName="type"
+        />
+        <label for="farmacia y salud"
+          ><img
+            class="radio__option-img"
+            src="/assets/sleeping-pills.png"
+            alt=""
+          />Farmacia y Salud</label
+        >
+      </div>
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="coche"
+          value="coche"
+          formControlName="type"
+        />
+        <label for="coche"
+          ><img
+            class="radio__option-img"
+            src="/assets/car.png"
+            alt="coche"
+          />Coche</label
+        >
+      </div>
+      
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="piso"
+          value="piso"
+          formControlName="type"
+        />
+        <label for="piso"
+          ><img
+            class="radio__option-img"
+            src="/assets/house.png"
+            alt="piso"
+          />Piso</label
+        >
+      </div>
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="telefono"
+          value="telefono"
+          formControlName="type"
+        />
+        <label for="telefono"
+          ><img
+            class="radio__option-img"
+            src="/assets/smartphone.png"
+            alt="caprichos"
+          />Teléfono</label
+        >
+      </div>
+      <div class="type__option">
+        <input
+          class="radio__option"
+          type="radio"
+          name="type"
+          id="caprichos"
+          value="caprichos"
+          formControlName="type"
+        />
+        <label for="caprichos"
+          ><img
+            class="radio__option-img"
+            src="/assets/new-product.png"
+            alt="caprichos"
+          />Caprichos</label
+        >
+      </div>
+    </div>
+    <label class="input-label" for="date">Fecha</label>
+    <input
+      class="input-form"
+      type="date"
+      name="date"
+      id="date"
+      formControlName="date"
+      value="2023-12-31"
+    />
+    <label class="input-label" for="amount">Cantidad</label>
+    <input
+      class="input-form"
+      type="number"
+      inputmode="numeric"
+      id="amount"
+      name="amount"
+      formControlName="amount"
+      placeholder="Ingrese la cantidad"
+    />
+
+    <label class="input-label" for="notes">Notas</label>
+    <input
+      type="text"
+      id="notes"
+      name="notes"
+      formControlName="notes"
+      class="input-form"
+      placeholder="Información adicional (opcional)"
+    />
+
+    <div class="container__buttons">
+      <button type="submit" [disabled]="!newExpenseForm.valid">
+        Guardar gasto
+      </button>
+    </div>
+  </form>
+</div>
