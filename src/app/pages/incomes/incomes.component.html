@@ -1,1 +1,26 @@
-<p>incomes works!</p>,
+<div class="container">
+    <div class="container__header">
+        <div class="date">18/12/2023</div>
+        @if (true) {<div class="more">Todos</div>}
+    </div>
+
+
+    <div class="container__data">
+
+        @for (item of daily; track item.id) {
+        <div class="transaction">
+            <div class="left__content">
+                <img src="/assets/{{item.type}}" alt="">
+                <span class="notes">{{item.notes | uppercase}}</span>
+            </div>
+
+            <div class="right__content">
+                <span class="amount">117,10 <span class="pln">PLN</span> </span>
+            </div>
+
+        </div>
+
+
+        }
+    </div>
+</div>

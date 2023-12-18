@@ -1,3 +1,78 @@
 :host {
   display: block;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.container__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.more {
+  color: green;
+}
+
+.total__quantity {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 10px;
+
+}
+
+.container__data {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+  border: 1px solid var(--gray);
+  padding: 5px;
+  border-radius: 5px;
+
+
+}
+
+.left__content {
+  display: flex;
+  align-items: center; 
+  
+}
+
+.right__content {
+  display: flex;
+}
+
+img {
+  height: 25px;
+  margin-right: 10px;
+}
+
+.amount {
+  font-weight: bold;
+  width: 100%;
+
+
+}
+
+.pln {
+  font-size: 10px;
+
+
+}
