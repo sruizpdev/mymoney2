@@ -14,6 +14,7 @@ export class OptionsComponent {
   constructor(private generalService: GeneralService) {}
 
   copiar(): void {
-    this.generalService.copy();
+    alert('funcion deshabilitada');
+    // this.generalService.copy();
   }
 }

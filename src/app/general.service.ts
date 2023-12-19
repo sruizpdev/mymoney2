@@ -20,16 +20,16 @@ export class GeneralService {
   constructor(private fs: Firestore) {}
 
   getAllExpenses() {
-    const collectionInstance = collection(this.fs, 'origen');
+    const collectionInstance = collection(this.fs, 'incomes');
     return collectionData(collectionInstance, { idField: 'id' });
   }
 
   copy() {
     this.getAllExpenses().subscribe((res) => {
       res.forEach((element) => {
-        const dbInstance = collection(this.fs, 'destino3');
+        const dbInstance = collection(this.fs, 'mymoney-incomes');
 
-        const mergedDate = `${element['day']}-${element['month']}-${element['year']}`;
+        const mergedDate = `${element['year']}-${element['month']}-${element['day']}`;
 
         const elementWithoutId = { ...element };
         delete elementWithoutId.id;
