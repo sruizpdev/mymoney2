@@ -20,14 +20,14 @@ export class GeneralService {
   constructor(private fs: Firestore) {}
 
   getAllExpenses() {
-    const collectionInstance = collection(this.fs, 'incomes');
+    const collectionInstance = collection(this.fs, 'mymoney-expenses');
     return collectionData(collectionInstance, { idField: 'id' });
   }
 
   copy() {
     this.getAllExpenses().subscribe((res) => {
       res.forEach((element) => {
-        const dbInstance = collection(this.fs, 'mymoney-incomes');
+        const dbInstance = collection(this.fs, 'mymoney-incomes'); // o mymoney-expenses, depende
 
         const mergedDate = `${element['year']}-${element['month']}-${element['day']}`;
 
