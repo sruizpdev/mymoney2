@@ -1,6 +1,6 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="newIncomeForm">
-     @if (newIncomeForm.get('date')?.hasError('required') &&
+    @if (newIncomeForm.get('date')?.hasError('required') &&
     newIncomeForm.get('date')?.touched) {
     <p class="error-msg">Introduzca una fecha</p>
     }@if (newIncomeForm.get('amount')?.hasError('required') &&
@@ -8,10 +8,9 @@
     <p class="error-msg">Introduzca una cantidad</p>
     } @if (newIncomeForm.get('type')?.hasError('required') &&
     newIncomeForm.get('type')?.untouched) {
-        <label class="type-label" for="date">Seleccione el tipo de ingreso</label>
+    <label class="type-label" for="date">Seleccione el tipo de ingreso</label>
     }
 
-    
     <div class="type">
       <div class="type__option">
         <input
@@ -90,10 +89,16 @@
       id="notes"
       name="notes"
       formControlName="notes"
+      list="sugerences"
       class="input-form"
       placeholder="Información adicional (opcional)"
     />
-
+    <datalist id="sugerences">
+      <option value="Nómina Ana"></option>
+      <option value="Nómina Sergio"></option>
+      <option value="Voucher Ana"></option>
+      <option value="Voucher Sergio"></option>
+    </datalist>
     <div class="container__buttons">
       <button type="submit" [disabled]="!newIncomeForm.valid">
         Guardar ingreso
