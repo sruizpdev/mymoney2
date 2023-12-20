@@ -12,9 +12,11 @@
       <div class="left__content">
         <!-- <img src="/assets/{{ item.type }}.png" alt="" /> -->
         @if (item.type=='famacia y salud') {
-        <img src="/assets/sleeping-pills.png" alt="" />
+        <img src="/assets/farmacia.png" alt="" />
+        } @else if (item.type=='teléfono') {
+        <img src="/assets/smartphone.png" alt="" />
         } @else {
-        <img src="/assets/{{ item.type }}.png" alt="" />
+        <img src="/assets/{{item.type}}.png" alt="" />
         }
         <span class="notes">{{ item.notes | uppercase }}</span>
       </div>

@@ -23,7 +23,7 @@
           checked
         />
         <label for="comida">
-          <img class="radio__option-img" src="/assets/grocery.png" alt="" />
+          <img class="radio__option-img" src="/assets/comida.png" alt="" />
           Comida
         </label>
       </div>
@@ -57,7 +57,7 @@
         <label for="ocio"
           ><img
             class="radio__option-img"
-            src="/assets/beer-mug.png"
+            src="/assets/ocio.png"
             alt="ocio"
           />Ocio</label
         >
@@ -91,7 +91,7 @@
         <label for="farmacia y salud"
           ><img
             class="radio__option-img"
-            src="/assets/sleeping-pills.png"
+            src="/assets/farmaciaysalud.png"
             alt=""
           />Farmacia y Salud</label
         >
@@ -113,7 +113,7 @@
           />Coche</label
         >
       </div>
-      
+
       <div class="type__option">
         <input
           class="radio__option"
@@ -191,10 +191,36 @@
       type="text"
       id="notes"
       name="notes"
+      list="sugerences"
       formControlName="notes"
       class="input-form"
       placeholder="Información adicional (opcional)"
     />
+    <datalist id="sugerences">
+      <option value="Auchan"></option>
+      <option value="Biedronka"></option>
+      <option value="Billetes tranvía"></option>
+      <option value="Bonobus"></option>
+      <option value="Cremas"></option>
+      <option value="Gasolina"></option>
+      <option value="Kaufland"></option>
+      <option value="Lavado coche"></option>
+      <option value="Lidl"></option>
+      <option value="McDonal's"></option>
+      <option value="McDonal's"></option>
+      <option value="Melatonina"></option>
+      <option value="Netto"></option>
+      <option value="Pan"></option>
+      <option value="Play"></option>
+      <option value="Pyszne.pl"></option>
+      <option value="Rossmann"></option>
+      <option value="Uber"></option>
+      <option value="Unagi"></option>
+      <option value="Vitaminas"></option>
+      <option value="Youtube"></option>
+      <option value="Zabka"></option>
+      <option value="Zooplus"></option>
+    </datalist>
 
     <div class="container__buttons">
       <button type="submit" [disabled]="!newExpenseForm.valid">
