@@ -1,26 +1,27 @@
 <div class="container">
   <div class="container__header">
-    <div class="date">18/12/2023</div>
+    <div class="date"></div>
     @if (true) {
     <div class="more">Todos</div>
     }
   </div>
-
+  @for (item of data$ |async; track $index ) {
+  {{ item.dia }}
   <div class="container__data">
-    @for (item of data | async; track item.id ) {
-    <div class="transaction">
+     @for (item2 of item.datos; track $index) {<div class="transaction">
+     
       <div class="left__content">
-        <img src="/assets/{{ item.type }}.png" alt="" />
-        <span class="notes">{{ item.notes | uppercase }}</span>
+        <img src="/assets/{{ item2.type }}.png" alt="" />
+        <span class="notes">{{ item2.notes | uppercase }}</span>
       </div>
 
       <div class="right__content">
         <span class="amount"
-          >{{ item.amount }}<span class="pln">{{ " " }}PLN</span>
+          >{{ item2.amount }}<span class="pln">{{ " " }}PLN</span>
         </span>
       </div>
-    </div>
-
-    }
+     
+    </div> }
   </div>
+  }
 </div>

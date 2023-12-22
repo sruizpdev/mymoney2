@@ -11,18 +11,46 @@ import {
   collectionData,
   deleteDoc,
   doc,
+  query,
   updateDoc,
+  where,
 } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class GeneralService {
   constructor(private fs: Firestore) {}
 
-  getAllExpenses() {
+  getAllExpenses(): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2'); //Esta es una collection temporal de datos
     return collectionData(collectionInstance, { idField: 'id' });
   }
+
+  getExpensesByDay(firstDay: string, lastDay: string): Observable<any[]> {
+    const collectionInstance = collection(this.fs, 'mymoney-expenses2');
+    const queryByDay = query(
+      collectionInstance,
+      where('date', '>=', firstDay),
+      where('date', '<=', lastDay)
+    );
+    return collectionData(queryByDay, { idField: 'id' });
+  }
+
+  // getExpensesByMonth(): Observable<any[]> {
+  //   let day: number = 9;
+  //   let mes: Observable<any>[];
+  //   for (let index = 0; index < day; index++) {
+  //     let x = this.getExpensesByDay(`2023-12-0${index + 1}`).subscribe(
+  //       (res) => {
+  //         mes[index] = { dia: `2023-12-0${index + 1}`, datos: res };
+  //       }
+  //     );
+  //   }
+
+  //   return mes;
+  // }
 
   //Esta función copia una collection y formatea varios campos (elimina espacios en blanco, acentos, etc.)
   //TODO hay que hacer lo mismo con los ingresos y formatear el texto nómina para quitarle el acento
