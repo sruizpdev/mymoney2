@@ -11,6 +11,7 @@ import {
   collectionData,
   deleteDoc,
   doc,
+  orderBy,
   query,
   updateDoc,
   where,
@@ -47,7 +48,7 @@ export class GeneralService {
     const queryByDay = query(
       collectionInstance,
       where('date', '>=', firstDay),
-      where('date', '<=', lastDay)
+      where('date', '<=', lastDay),orderBy('date', 'desc')
     );
     return collectionData(queryByDay, { idField: 'id' });
   }
