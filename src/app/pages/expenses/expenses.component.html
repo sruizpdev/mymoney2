@@ -5,19 +5,19 @@
     <div class="more">Todos</div>
     }
   </div>
-  @for (item of data$ |async; track $index ) {
-  {{ item.dia }}
+  @for (item of data$ |async; track item.day ) {
+  {{ item.day }}
   <div class="container__data">
-     @for (item2 of item.datos; track $index) {<div class="transaction">
+     @for (subItem of item.data; track subItem.id) {<div class="transaction">
      
       <div class="left__content">
-        <img src="/assets/{{ item2.type }}.png" alt="" />
-        <span class="notes">{{ item2.notes | uppercase }}</span>
+        <img src="/assets/{{ subItem.type }}.png" alt="" />
+        <span class="notes">{{ subItem.notes | uppercase }}</span>
       </div>
 
       <div class="right__content">
         <span class="amount"
-          >{{ item2.amount }}<span class="pln">{{ " " }}PLN</span>
+          >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
         </span>
       </div>
      

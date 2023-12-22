@@ -3,9 +3,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { GeneralService } from '../../general.service';
 
-interface NuevoTipo {
-  dia: string;
-  datos: {
+interface DailyMovements {
+  day: string;
+  data: {
     amount: number;
     date: string;
     id: string;
@@ -28,32 +28,27 @@ export class ExpensesComponent {
     this.data$ = generalService.getExpensesByDay('2023-11-01', '2023-11-30');
     this.data$.subscribe((res) => {
       console.log(res);
-  
-      // Usamos reduce para agrupar por día
-      const newArray: NuevoTipo[] = res.reduce((result, item) => {
-        // Verificamos si ya existe un elemento para ese día
-        const existingItem = result.find((elem: { dia: string; }) => elem.dia === item.date);
-  
+
+      const newArray: DailyMovements[] = res.reduce((result, item) => {
+        const existingItem = result.find(
+          (elem: { day: string }) => elem.day === item.date
+        );
         if (existingItem) {
-          // Si ya existe, simplemente agregamos el elemento a su array de datos
-          existingItem.datos.push(item);
+          existingItem.data.push(item);
         } else {
-          // Si no existe, creamos un nuevo elemento con un array que contiene el primer elemento de ese día
           result.push({
-            dia: item.date,
-            datos: [item]
+            day: item.date,
+            data: [item],
           });
         }
-  
         return result;
       }, []);
-  
+
       console.log(newArray);
-      this.data$ = of(newArray)
-      
+      this.data$ = of(newArray);
     });
   }
-  
+
   obtenerFechaActual(): string {
     const fecha = new Date();
     const year = fecha.getFullYear();
