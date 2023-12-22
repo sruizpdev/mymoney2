@@ -1,20 +1,14 @@
 <div class="container">
-  <div class="container__header">
-    <div class="date"></div>
-    @if (true) {
-    <div class="more">Todos</div>
-    }
-  </div>
   @for (item of data$ |async; track item.day ) {
-  {{ item.day }}
+ <div class="day">
+    {{ item.day }}</div>
   <div class="container__data">
     @for (subItem of item.data; track subItem.id) {
     <button
       routerLink="/edit-expense"
       [queryParams]="{
-id: subItem.id,
-
-}"
+        id: subItem.id
+      }"
       type="button"
     >
       <div class="transaction">

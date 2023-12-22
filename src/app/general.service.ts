@@ -38,19 +38,6 @@ export class GeneralService {
     return collectionData(queryByDay, { idField: 'id' });
   }
 
-  // getExpensesByMonth(): Observable<any[]> {
-  //   let day: number = 9;
-  //   let mes: Observable<any>[];
-  //   for (let index = 0; index < day; index++) {
-  //     let x = this.getExpensesByDay(`2023-12-0${index + 1}`).subscribe(
-  //       (res) => {
-  //         mes[index] = { dia: `2023-12-0${index + 1}`, datos: res };
-  //       }
-  //     );
-  //   }
-
-  //   return mes;
-  // }
 
   //Esta función copia una collection y formatea varios campos (elimina espacios en blanco, acentos, etc.)
   //TODO hay que hacer lo mismo con los ingresos y formatear el texto nómina para quitarle el acento
