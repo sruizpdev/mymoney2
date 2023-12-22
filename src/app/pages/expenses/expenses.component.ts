@@ -26,7 +26,23 @@ export class ExpensesComponent {
   data$: Observable<any[]>;
 
   constructor(private generalService: GeneralService) {
-    this.data$ = generalService.getExpensesByDay('2023-11-01', '2023-11-30');
+
+
+    function getDate() {
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
+      const day = String(currentDate.getDate()).padStart(2, '0');
+      
+      const lastDay = new Date(year, Number(month), 0).getDate();
+      return {year,month,day,lastDay};
+    }
+    
+    
+    const today = getDate();
+   
+
+    this.data$ = generalService.getExpenses(`${today.year}-${today.month}-01`, `${today.year}-${today.month}-${today.lastDay}`);
     this.data$.subscribe((res) => {
       console.log(res);
 

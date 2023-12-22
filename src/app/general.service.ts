@@ -43,7 +43,7 @@ export class GeneralService {
     return updateDoc(docInstance, data);
   }
 
-  getExpensesByDay(firstDay: string, lastDay: string): Observable<any[]> {
+  getExpenses(firstDay: string, lastDay: string): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2');
     const queryByDay = query(
       collectionInstance,
