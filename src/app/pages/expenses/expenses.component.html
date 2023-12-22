@@ -7,7 +7,11 @@
     <button
       routerLink="/edit-expense"
       [queryParams]="{
-        id: subItem.id
+        id: subItem.id,
+        type:subItem.type,
+        date:subItem.date,
+        amount:subItem.amount,
+        notes:subItem.notes
       }"
       type="button"
     >

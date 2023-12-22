@@ -28,6 +28,16 @@ export class GeneralService {
     return collectionData(collectionInstance, { idField: 'id' });
   }
 
+  deleteExpense(id: string) {
+    const docInstance = doc(this.fs, 'mymoney-expenses2', id);
+    return deleteDoc(docInstance);
+  }
+
+  updateExpense(id: string, data: object) {
+    const docInstance = doc(this.fs, 'mymoney-expenses2', id);
+    return updateDoc(docInstance, data);
+  }
+
   getExpensesByDay(firstDay: string, lastDay: string): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2');
     const queryByDay = query(
