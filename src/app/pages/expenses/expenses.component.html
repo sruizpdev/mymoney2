@@ -8,20 +8,29 @@
   @for (item of data$ |async; track item.day ) {
   {{ item.day }}
   <div class="container__data">
-     @for (subItem of item.data; track subItem.id) {<div class="transaction">
-     
-      <div class="left__content">
-        <img src="/assets/{{ subItem.type }}.png" alt="" />
-        <span class="notes">{{ subItem.notes | uppercase }}</span>
-      </div>
+    @for (subItem of item.data; track subItem.id) {
+    <button
+      routerLink="/edit-expense"
+      [queryParams]="{
+id: subItem.id,
 
-      <div class="right__content">
-        <span class="amount"
-          >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
-        </span>
+}"
+      type="button"
+    >
+      <div class="transaction">
+        <div class="left__content">
+          <img src="/assets/{{ subItem.type }}.png" alt="" />
+          <span class="notes">{{ subItem.notes | uppercase }}</span>
+        </div>
+
+        <div class="right__content">
+          <span class="amount"
+            >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
+          </span>
+        </div>
       </div>
-     
-    </div> }
+    </button>
+    }
   </div>
   }
 </div>

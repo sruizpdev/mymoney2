@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { GeneralService } from '../../general.service';
+import { RouterLink } from '@angular/router';
 
 interface DailyMovements {
   day: string;
@@ -16,7 +17,7 @@ interface DailyMovements {
 @Component({
   selector: 'app-expenses',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './expenses.component.html',
   styleUrl: './expenses.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,7 +30,7 @@ export class ExpensesComponent {
     this.data$.subscribe((res) => {
       console.log(res);
 
-      const newArray: DailyMovements[] = res.reduce((result, item) => {
+      const newArrayMovements: DailyMovements[] = res.reduce((result, item) => {
         const existingItem = result.find(
           (elem: { day: string }) => elem.day === item.date
         );
@@ -44,8 +45,8 @@ export class ExpensesComponent {
         return result;
       }, []);
 
-      console.log(newArray);
-      this.data$ = of(newArray);
+      console.log(newArrayMovements);
+      this.data$ = of(newArrayMovements);
     });
   }
 
