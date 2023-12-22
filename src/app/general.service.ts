@@ -28,6 +28,10 @@ export class GeneralService {
     return collectionData(collectionInstance, { idField: 'id' });
   }
 
+  addNewExpense(data: Object) {
+    const dbInstance = collection(this.fs, 'mymoney-expenses2');
+    return addDoc(dbInstance, data);
+  }
   deleteExpense(id: string) {
     const docInstance = doc(this.fs, 'mymoney-expenses2', id);
     return deleteDoc(docInstance);

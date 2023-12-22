@@ -1,19 +1,25 @@
+import { GeneralService } from './../../general.service';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-expense',
   standalone: true,
-  imports: [
-    CommonModule,ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './new-expense.component.html',
   styleUrl: './new-expense.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NewExpenseComponent { 
-
+export class NewExpenseComponent {
+  router = inject(Router);
+  constructor(private generalService: GeneralService) {}
   newExpenseForm = new FormGroup({
     amount: new FormControl('', [Validators.required]),
     date: new FormControl('2023-12-31', [Validators.required]),
@@ -31,14 +37,13 @@ export class NewExpenseComponent {
     };
     console.log(data);
 
-    // };
-    // this.userService
-    //   .addNew(data)
-    //   .then(() => {
-    //     this.router.navigate(['/home']);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    this.generalService
+      .addNewExpense(data)
+      .then(() => {
+        this.router.navigate(['/expenses']);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
