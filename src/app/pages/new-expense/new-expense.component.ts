@@ -1,6 +1,11 @@
 import { GeneralService } from './../../general.service';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -19,13 +24,23 @@ import { Router } from '@angular/router';
 })
 export class NewExpenseComponent {
   router = inject(Router);
+
   constructor(private generalService: GeneralService) {}
+
   newExpenseForm = new FormGroup({
     amount: new FormControl('', [Validators.required]),
-    date: new FormControl('2023-12-31', [Validators.required]),
+    date: new FormControl(this.getCurrentDay(), [Validators.required]),
     type: new FormControl('', [Validators.required]),
     notes: new FormControl(''),
   });
+
+  getCurrentDay() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
   onSubmit() {
     const data = {

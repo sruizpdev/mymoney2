@@ -54,6 +54,16 @@ export class GeneralService {
   }
 
 
+  getDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    
+    const lastDay = new Date(year, Number(month), 0).getDate();
+    return {year,month,day,lastDay};
+  }
+
   //Esta función copia una collection y formatea varios campos (elimina espacios en blanco, acentos, etc.)
   //TODO hay que hacer lo mismo con los ingresos y formatear el texto nómina para quitarle el acento
   copy() {

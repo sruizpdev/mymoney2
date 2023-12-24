@@ -17,5 +17,5 @@ export class BigOptionComponent {
   @Input() txt:string=''
   @Input() action:string=''
   
-  
+ 
 }
