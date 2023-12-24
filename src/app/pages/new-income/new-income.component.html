@@ -6,6 +6,9 @@
     }@if (newIncomeForm.get('amount')?.hasError('required') &&
     newIncomeForm.get('amount')?.touched) {
     <p class="error-msg">Introduzca una cantidad</p>
+    } @if (newIncomeForm.get('notes')?.hasError('required') &&
+    newIncomeForm.get('notes')?.touched) {
+    <p class="error-msg">Introduza una descripción</p>
     } @if (newIncomeForm.get('type')?.hasError('required') &&
     newIncomeForm.get('type')?.untouched) {
     <label class="type-label" for="date">Seleccione el tipo de ingreso</label>
@@ -83,7 +86,7 @@
       placeholder="Ingrese la cantidad"
     />
 
-    <label class="input-label" for="notes">Notas</label>
+    <label class="input-label" for="notes">Descripción</label>
     <input
       type="text"
       id="notes"
@@ -91,7 +94,7 @@
       formControlName="notes"
       list="sugerences"
       class="input-form"
-      placeholder="Información adicional (opcional)"
+      placeholder="Introduza una descripción"
     />
     <datalist id="sugerences">
       <option value="Nómina Ana"></option>

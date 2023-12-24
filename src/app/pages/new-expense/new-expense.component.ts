@@ -31,7 +31,7 @@ export class NewExpenseComponent {
     amount: new FormControl('', [Validators.required]),
     date: new FormControl(this.getCurrentDay(), [Validators.required]),
     type: new FormControl('', [Validators.required]),
-    notes: new FormControl(''),
+    notes: new FormControl('',[Validators.required]),
   });
 
   getCurrentDay() {

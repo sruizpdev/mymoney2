@@ -6,7 +6,10 @@
     }@if (newExpenseForm.get('amount')?.hasError('required') &&
     newExpenseForm.get('amount')?.touched) {
     <p class="error-msg">Introduzca una cantidad</p>
-    } @if (newExpenseForm.get('type')?.hasError('required') &&
+    } @if (newExpenseForm.get('notes')?.hasError('required') &&
+    newExpenseForm.get('notes')?.touched) {
+    <p class="error-msg">Introduza una descripción</p>
+    }@if (newExpenseForm.get('type')?.hasError('required') &&
     newExpenseForm.get('type')?.untouched) {
     <label class="type-label" for="date">Seleccione el tipo de gasto</label>
     }
@@ -194,7 +197,6 @@
       name="date"
       id="date"
       formControlName="date"
-      
     />
     <label class="input-label" for="amount">Cantidad</label>
     <input
@@ -207,7 +209,7 @@
       placeholder="Ingrese la cantidad"
     />
 
-    <label class="input-label" for="notes">Notas</label>
+    <label class="input-label" for="notes">Descripción</label>
     <input
       type="text"
       id="notes"
@@ -215,7 +217,7 @@
       list="sugerences"
       formControlName="notes"
       class="input-form"
-      placeholder="Información adicional (opcional)"
+      placeholder="Introduzca una descripción"
     />
     <datalist id="sugerences">
       <option value="Auchan"></option>

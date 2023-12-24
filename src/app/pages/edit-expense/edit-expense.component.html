@@ -6,7 +6,10 @@
     }@if (editExpenseForm.get('amount')?.hasError('required') &&
     editExpenseForm.get('amount')?.touched) {
     <p class="error-msg">Introduzca una cantidad</p>
-    } @if (editExpenseForm.get('type')?.hasError('required') &&
+    } @if (editExpenseForm.get('notes')?.hasError('required') &&
+    editExpenseForm.get('notes')?.touched) {
+    <p class="error-msg">Introduzca una descripción</p>
+    }@if (editExpenseForm.get('type')?.hasError('required') &&
     editExpenseForm.get('type')?.untouched) {
     <label class="type-label" for="date">Seleccione el tipo de gasto</label>
     }
@@ -207,7 +210,7 @@
       placeholder="Ingrese la cantidad"
     />
 
-    <label class="input-label" for="notes">Notas</label>
+    <label class="input-label" for="notes">Descripción</label>
     <input
       type="text"
       id="notes"
@@ -215,7 +218,7 @@
       list="sugerences"
       formControlName="notes"
       class="input-form"
-      placeholder="Información adicional (opcional)"
+      placeholder="Introduzca una descripción"
     />
     <datalist id="sugerences">
       <option value="Auchan"></option>
@@ -245,13 +248,17 @@
 
     <div class="container-buttons">
       <button class="delete-btn" type="button" (click)="delete()">
-        <img class="btn-icon" src="/assets/eliminar.png" alt="">Eliminar</button
+        <img
+          class="btn-icon"
+          src="/assets/eliminar.png"
+          alt=""
+        />Eliminar</button
       ><button
         class="edit-btn"
         type="submit"
         [disabled]="!editExpenseForm.valid"
       >
-      <img class="btn-icon" src="/assets/editar.png" alt=""> Editar
+        <img class="btn-icon" src="/assets/editar.png" alt="" /> Editar
       </button>
     </div>
   </form>

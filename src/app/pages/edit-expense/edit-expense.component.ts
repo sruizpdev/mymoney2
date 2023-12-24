@@ -41,7 +41,7 @@ export class EditExpenseComponent {
     amount: new FormControl('', [Validators.required]),
     date: new FormControl('2023-12-31', [Validators.required]),
     type: new FormControl('', [Validators.required]),
-    notes: new FormControl(''),
+    notes: new FormControl('',[Validators.required]),
   });
 
   onSubmit() {
@@ -53,16 +53,12 @@ export class EditExpenseComponent {
       notes: this.editExpenseForm.value.notes?.trim(),
     };
 
-    console.log('estos son lod datos:  ',data);
-    
     const res = confirm('¿Está seguro?');
     if (res) {
       this.generalService
         .updateExpense(this.id, data)
         .then(() => {
           this.router.navigate(['/expenses']);
-        
-          
         })
         .catch((err) => {
           console.log(err);
@@ -77,9 +73,7 @@ export class EditExpenseComponent {
       this.generalService
         .deleteExpense(this.id)
         .then(() => {
-          console.log('Registro eliminado');
-          
-          
+          this.router.navigate(['/expenses']);
         })
         .catch((err) => console.log(err));
     }
