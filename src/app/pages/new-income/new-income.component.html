@@ -1,18 +1,8 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="newIncomeForm">
-    @if (newIncomeForm.get('date')?.hasError('required') &&
-    newIncomeForm.get('date')?.touched) {
-    <p class="error-msg">Introduzca una fecha</p>
-    }@if (newIncomeForm.get('amount')?.hasError('required') &&
-    newIncomeForm.get('amount')?.touched) {
-    <p class="error-msg">Introduzca una cantidad</p>
-    } @if (newIncomeForm.get('notes')?.hasError('required') &&
-    newIncomeForm.get('notes')?.touched) {
-    <p class="error-msg">Introduza una descripción</p>
-    } @if (newIncomeForm.get('type')?.hasError('required') &&
-    newIncomeForm.get('type')?.untouched) {
+   
     <label class="type-label" for="date">Seleccione el tipo de ingreso</label>
-    }
+    
 
     <div class="type">
       <div class="type__option">
@@ -103,7 +93,8 @@
       <option value="Voucher Sergio"></option>
     </datalist>
     <div class="container__buttons">
-      <button type="submit" [disabled]="!newIncomeForm.valid">
+      <!-- [disabled]="!newIncomeForm.valid -->
+      <button type="submit">
         Guardar ingreso
       </button>
     </div>

@@ -1,18 +1,6 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="editExpenseForm">
-    @if (editExpenseForm.get('date')?.hasError('required') &&
-    editExpenseForm.get('date')?.touched) {
-    <p class="error-msg">Introduzca una fecha</p>
-    }@if (editExpenseForm.get('amount')?.hasError('required') &&
-    editExpenseForm.get('amount')?.touched) {
-    <p class="error-msg">Introduzca una cantidad</p>
-    } @if (editExpenseForm.get('notes')?.hasError('required') &&
-    editExpenseForm.get('notes')?.touched) {
-    <p class="error-msg">Introduzca una descripción</p>
-    }@if (editExpenseForm.get('type')?.hasError('required') &&
-    editExpenseForm.get('type')?.untouched) {
     <label class="type-label" for="date">Seleccione el tipo de gasto</label>
-    }
 
     <div class="type">
       <div class="type__option">
@@ -253,11 +241,8 @@
           src="/assets/eliminar.png"
           alt=""
         />Eliminar</button
-      ><button
-        class="edit-btn"
-        type="submit"
-        [disabled]="!editExpenseForm.valid"
-      >
+      ><button class="edit-btn" type="submit">
+        <!-- [disabled]="!editExpenseForm.valid -->
         <img class="btn-icon" src="/assets/editar.png" alt="" /> Editar
       </button>
     </div>

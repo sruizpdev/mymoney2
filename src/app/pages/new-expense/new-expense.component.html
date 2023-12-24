@@ -1,18 +1,8 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="newExpenseForm">
-    @if (newExpenseForm.get('date')?.hasError('required') &&
-    newExpenseForm.get('date')?.touched) {
-    <p class="error-msg">Introduzca una fecha</p>
-    }@if (newExpenseForm.get('amount')?.hasError('required') &&
-    newExpenseForm.get('amount')?.touched) {
-    <p class="error-msg">Introduzca una cantidad</p>
-    } @if (newExpenseForm.get('notes')?.hasError('required') &&
-    newExpenseForm.get('notes')?.touched) {
-    <p class="error-msg">Introduza una descripción</p>
-    }@if (newExpenseForm.get('type')?.hasError('required') &&
-    newExpenseForm.get('type')?.untouched) {
+    
     <label class="type-label" for="date">Seleccione el tipo de gasto</label>
-    }
+    
 
     <div class="type">
       <div class="type__option">
@@ -246,7 +236,8 @@
     </datalist>
 
     <div class="container__buttons">
-      <button type="submit" [disabled]="!newExpenseForm.valid">
+      <!-- <button type="submit" [disabled]="!newExpenseForm.valid"> -->
+      <button type="submit">
         Guardar gasto
       </button>
     </div>

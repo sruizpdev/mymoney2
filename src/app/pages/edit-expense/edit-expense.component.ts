@@ -41,7 +41,7 @@ export class EditExpenseComponent {
     amount: new FormControl('', [Validators.required]),
     date: new FormControl('2023-12-31', [Validators.required]),
     type: new FormControl('', [Validators.required]),
-    notes: new FormControl('',[Validators.required]),
+    notes: new FormControl('', [Validators.required]),
   });
 
   onSubmit() {
@@ -52,17 +52,38 @@ export class EditExpenseComponent {
       type: this.editExpenseForm.value.type,
       notes: this.editExpenseForm.value.notes?.trim(),
     };
+    let errorMessage = '';
 
-    const res = confirm('¿Está seguro?');
-    if (res) {
-      this.generalService
-        .updateExpense(this.id, data)
-        .then(() => {
-          this.router.navigate(['/expenses']);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    if (this.editExpenseForm.invalid) {
+      if (this.editExpenseForm.get('amount')?.hasError('required')) {
+        errorMessage += 'Por favor, introduzca una cantidad.\n';
+      }
+      if (this.editExpenseForm.get('date')?.hasError('required')) {
+        errorMessage += 'Por favor, seleccione una fecha.\n';
+      }
+      if (this.editExpenseForm.get('type')?.hasError('required')) {
+        errorMessage += 'Por favor, seleccione un tipo.\n';
+      }
+      if (this.editExpenseForm.get('notes')?.hasError('required')) {
+        errorMessage += 'Por favor, introduzca una descripción.\n';
+      }
+
+      // Muestra el mensaje de alerta acumulado
+      if (errorMessage) {
+        alert(errorMessage);
+      }
+    } else {
+      const res = confirm('¿Está seguro?');
+      if (res) {
+        this.generalService
+          .updateExpense(this.id, data)
+          .then(() => {
+            this.router.navigate(['/expenses']);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     }
   }
 
