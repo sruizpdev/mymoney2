@@ -6,8 +6,8 @@
 
   <div class="container__data">
     <div class="container__data__text">
-      <span class="txt">Saldo{{ " " }} 17/12/2023</span>
-      <span class="total__quantity">6.487,16 PLN</span>
+      <span class="txt">Saldo{{ " " }} {{dayFormated}}</span>
+      <span class="total__quantity">{{total$ |async}} PLN</span>
     </div>
     <div class="container__data__img">
       <img src="/assets/resumen.png" alt="">
