@@ -48,6 +48,15 @@ export class GeneralService {
     const docInstance = doc(this.fs, 'mymoney-expenses2', id);
     return updateDoc(docInstance, data);
   }
+  deleteIncome(id: string) {
+    const docInstance = doc(this.fs, 'mymoney-incomes2', id);
+    return deleteDoc(docInstance);
+  }
+
+  updateIncome(id: string, data: object) {
+    const docInstance = doc(this.fs, 'mymoney-incomes2', id);
+    return updateDoc(docInstance, data);
+  }
 
   getExpenses(firstDay: string, lastDay: string): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2');
