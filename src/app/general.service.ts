@@ -29,6 +29,10 @@ export class GeneralService {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2'); //Esta es una collection temporal de datos
     return collectionData(collectionInstance, { idField: 'id' });
   }
+  getAllIncomes(): Observable<any[]> {
+    const collectionInstance = collection(this.fs, 'mymoney-incomes2'); //Esta es una collection temporal de datos
+    return collectionData(collectionInstance, { idField: 'id' });
+  }
 
   addNewExpense(data: Object) {
     const dbInstance = collection(this.fs, 'mymoney-expenses2');
@@ -82,9 +86,9 @@ export class GeneralService {
   //Esta función copia una collection y formatea varios campos (elimina espacios en blanco, acentos, etc.)
   //TODO hay que hacer lo mismo con los ingresos y formatear el texto nómina para quitarle el acento
   copy() {
-    this.getAllExpenses().subscribe((res) => {
+    this.getAllIncomes().subscribe((res) => {
       res.forEach((element) => {
-        const dbInstance = collection(this.fs, 'mymoney-expenses2'); // o mymoney-expenses, depende
+        const dbInstance = collection(this.fs, 'mymoney-incomes2'); // o mymoney-expenses, depende
 
         const mergedDate = `${element['year']}-${element['month']}-${element['day']}`;
 
@@ -92,12 +96,12 @@ export class GeneralService {
 
         delete elementWithoutId.id;
 
-        if (elementWithoutId['type'] == 'farmacia y salud') {
-          elementWithoutId['type'] = 'farmacia';
+        if (elementWithoutId['type'] == 'nómina') {
+          elementWithoutId['type'] = 'nomina';
         }
-        if (elementWithoutId['type'] == 'teléfono') {
-          elementWithoutId['type'] = 'telefono';
-        }
+        // if (elementWithoutId['type'] == 'teléfono') {
+        //   elementWithoutId['type'] = 'telefono';
+        // }
 
         delete elementWithoutId['day'];
         delete elementWithoutId['month'];
