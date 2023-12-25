@@ -36,7 +36,7 @@ export class ResumeComponent {
     );
 
     this.total$ = combineLatest([this.totalIncomes$, this.totalExpenses$]).pipe(
-      map(([totalIncomes, totalExpenses]) => totalIncomes - totalExpenses)
+      map(([totalIncomes, totalExpenses]) => +(totalIncomes - totalExpenses).toFixed(2))
     );
   }
 }
