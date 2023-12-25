@@ -6,6 +6,7 @@ import {
   DocumentData,
   DocumentReference,
   Firestore,
+  QuerySnapshot,
   addDoc,
   collection,
   collectionData,
@@ -16,7 +17,7 @@ import {
   updateDoc,
   where,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -48,20 +49,34 @@ export class GeneralService {
     const queryByDay = query(
       collectionInstance,
       where('date', '>=', firstDay),
-      where('date', '<=', lastDay),orderBy('date', 'desc')
+      where('date', '<=', lastDay),
+      orderBy('date', 'desc')
     );
     return collectionData(queryByDay, { idField: 'id' });
   }
-
+  getTotalExpenses(firstDay: string, lastDay: string): Observable<number> {
+    const collectionInstance = collection(this.fs, 'mymoney-expenses2');
+    const queryByDay = query(
+      collectionInstance,
+      where('date', '>=', firstDay),
+      where('date', '<=', lastDay),
+      orderBy('date', 'desc')
+    );
+    return collectionData(queryByDay, { idField: 'id' }).pipe(
+      map((res) => {
+        return Number(res.reduce((total, objeto) => total + +objeto['amount'], 0).toFixed(2));
+      })
+    );
+  }
 
   getDate() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getDate()).padStart(2, '0');
-    
+
     const lastDay = new Date(year, Number(month), 0).getDate();
-    return {year,month,day,lastDay};
+    return { year, month, day, lastDay };
   }
 
   //Esta función copia una collection y formatea varios campos (elimina espacios en blanco, acentos, etc.)

@@ -6,8 +6,8 @@
 
   <div class="container__data">
     <div class="container__data__text">
-      <span class="txt">Total gastos{{ " " }} {{currentDay}}</span>
-      <span class="total__quantity">2.117,10 PLN</span>
+      <span class="txt">Total gastos{{ " " }} {{dayFormated}}</span>
+      <span class="total__quantity">{{total$ |async}} PLN</span>
     </div>
     <div class="container__data__img">
       <img src="/assets/pago.png" alt="Total de Gastos">
