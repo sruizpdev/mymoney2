@@ -1,1 +1,67 @@
-<p>login works!</p>,
+<div class="container">
+    <div class="header">
+      <p>Bienvenido a <span>myMoney2</span></p>
+      <img src="assets/myPassIcon.png" alt="MyPass" />
+  
+      <div class="quote__container">
+        <p class="quote">
+          "Ya es hora de saber en que se va dinerito"
+        </p>
+        <cite class="author">- Miguel de Unamuno</cite>
+      </div>
+    </div>
+  
+    @if(loginForm.get('email')?.hasError('required')&&loginForm.get('email')?.touched)
+    {
+    <p class="err__text">Introduzca su email</p>
+    }
+    @if(loginForm.get('email')?.hasError('email')&&loginForm.get('email')?.touched)
+    {
+    <p class="err__text">Email no válido</p>
+    }
+    @if(loginForm.get('password')?.hasError('required')&&loginForm.get('password')?.touched){
+    <p class="err__text">Introduce su contraseña</p>
+    } @if (loginErr) {
+    <p class="err__text">Usuario o contraseña incorrecto</p>
+    }
+    <div class="login__container">
+      <div class="title">
+        <p>Login</p>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row__form">
+          <!-- <fa-icon [icon]="faUser"></fa-icon> -->
+          <input
+            class="input__form"
+            type="email"
+            id="email"
+            name="email"
+            formControlName="email"
+            placeholder="Ingrese su email"
+          
+          />
+        </div>
+        <div class="row__form">
+          <!-- <fa-icon [icon]="faLock"></fa-icon> -->
+          <input
+            class="input__form"
+            type="password"
+            id="password"
+            name="password"
+            formControlName="password"
+            placeholder="*******"
+            
+          />
+        </div>
+        <div class="row__form row__button">
+          <input
+            class="input__submit"
+            type="submit"
+            value="Entrar"
+            [disabled]="loginForm.invalid"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+  

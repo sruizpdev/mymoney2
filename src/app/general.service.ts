@@ -24,7 +24,20 @@ import { Observable, map, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class GeneralService {
-  constructor(private fs: Firestore) {}
+  
+  constructor(private fs: Firestore, private auth: Auth) {}
+
+  isLogged(): boolean {
+    return localStorage.getItem('user') ? true : false;
+  }
+
+  // login
+  login(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+  whoIsLogged() {
+    return this.auth.currentUser?.uid;
+  }
 
   getAllExpenses(): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2'); //Esta es una collection temporal de datos

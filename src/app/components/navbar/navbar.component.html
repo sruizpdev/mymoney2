@@ -1,7 +1,8 @@
 <div class="container">
   <div class="container-top">
     <img class="avatar-img" src="/assets/ana.jpg" alt="User avatar" />
-    <img routerLink="/login" class="logout-icon" src="/assets/exit.png" alt="Logout" />
+    <a (click)="logout()"> <img routerLink="/login" class="logout-icon" src="/assets/exit.png" alt="Logout" /></a>
+   
   </div>
 
   <nav>

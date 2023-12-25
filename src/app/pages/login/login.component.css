@@ -1,3 +1,140 @@
-:host {
-  display: block;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width:380px) {
+  .container {
+    max-width: 380px;
+    margin: 0 auto;
+
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px;
+  gap: 20px;
+}
+
+
+
+.err__text {
+  color: white;
+  padding: 10px;
+  background: red;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+
+}
+
+p {
+  font-weight: normal;
+}
+
+span {
+  font-style: italic;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.quote__container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.quote {
+  
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.author {
+  font-size: 10px;
+  text-align: end;
+}
+
+.login__container {
+  border-radius: 5px;
+  background: white;
+  width: 90%;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 1px solid var(--green);
+}
+
+.title {
+  text-align: center;
+  line-height: 60px;
+  background: var(--green);
+  border-radius: 5px 5px 0 0;
+
+  color: white;
+}
+
+form {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row__form {
+  height: 40px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.row__form input {
+  height: 100%;
+  width: 100%;
+  padding-left: 60px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--green);
+  
+}
+
+::placeholder {
+  color: var(--stone);
+}
+
+fa-icon {
+  position: absolute;
+  width: 45px;
+  height: 100%;
+  background: var(--green);
+  border: 1px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+  border-radius: 5px 0 0 5px;
+}
+
+.row__button input {
+
+  padding-left: 0px;
+  cursor: pointer;
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: white;
+  
+
+}
+
+.row__button input:hover {
+  border: 1px solid var(--green);
+  background: var(--green);
+}
+
+img {
+  width: 80px;
 }
