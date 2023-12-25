@@ -58,6 +58,16 @@ export class GeneralService {
     );
     return collectionData(queryByDay, { idField: 'id' });
   }
+  getIncomes(firstDay: string, lastDay: string): Observable<any[]> {
+    const collectionInstance = collection(this.fs, 'mymoney-incomes2');
+    const queryByDay = query(
+      collectionInstance,
+      where('date', '>=', firstDay),
+      where('date', '<=', lastDay),
+      orderBy('date', 'desc')
+    );
+    return collectionData(queryByDay, { idField: 'id' });
+  }
   getTotalExpenses(firstDay: string, lastDay: string): Observable<number> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2');
     const queryByDay = query(
@@ -68,7 +78,25 @@ export class GeneralService {
     );
     return collectionData(queryByDay, { idField: 'id' }).pipe(
       map((res) => {
-        return Number(res.reduce((total, objeto) => total + +objeto['amount'], 0).toFixed(2));
+        return Number(
+          res.reduce((total, objeto) => total + +objeto['amount'], 0).toFixed(2)
+        );
+      })
+    );
+  }
+  getTotalIncomes(firstDay: string, lastDay: string): Observable<number> {
+    const collectionInstance = collection(this.fs, 'mymoney-incomes2');
+    const queryByDay = query(
+      collectionInstance,
+      where('date', '>=', firstDay),
+      where('date', '<=', lastDay),
+      orderBy('date', 'desc')
+    );
+    return collectionData(queryByDay, { idField: 'id' }).pipe(
+      map((res) => {
+        return Number(
+          res.reduce((total, objeto) => total + +objeto['amount'], 0).toFixed(2)
+        );
       })
     );
   }
