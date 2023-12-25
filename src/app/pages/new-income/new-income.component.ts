@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GeneralService } from '../../general.service';
 
 @Component({
   selector: 'app-new-income',
@@ -16,12 +18,17 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewIncomeComponent {
+  router = inject(Router);
+  errMsg: string = '';
+  constructor(private generalService: GeneralService) {}
+
   newIncomeForm = new FormGroup({
     amount: new FormControl('', [Validators.required]),
     date: new FormControl(this.getCurrentDay(), [Validators.required]),
     type: new FormControl('', [Validators.required]),
-    notes: new FormControl('',[Validators.required]),
+    notes: new FormControl('', [Validators.required]),
   });
+
   getCurrentDay() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -29,6 +36,7 @@ export class NewIncomeComponent {
     const day = String(currentDate.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   }
+
   onSubmit() {
     const data = {
       amount: this.newIncomeForm.value.amount,
@@ -37,6 +45,7 @@ export class NewIncomeComponent {
       type: this.newIncomeForm.value.type,
       notes: this.newIncomeForm.value.notes?.trim(),
     };
+
     let errorMessage = '';
 
     if (this.newIncomeForm.invalid) {
@@ -58,8 +67,14 @@ export class NewIncomeComponent {
         alert(errorMessage);
       }
     } else {
-      console.log('Introduciendo datos');
-      
+      this.generalService
+        .addNewIncome(data)
+        .then(() => {
+          this.router.navigate(['/incomes']);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
 }

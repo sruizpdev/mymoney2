@@ -39,6 +39,10 @@ export class GeneralService {
     const dbInstance = collection(this.fs, 'mymoney-expenses2');
     return addDoc(dbInstance, data);
   }
+  addNewIncome(data: Object) {
+    const dbInstance = collection(this.fs, 'mymoney-incomes2');
+    return addDoc(dbInstance, data);
+  }
   deleteExpense(id: string) {
     const docInstance = doc(this.fs, 'mymoney-expenses2', id);
     return deleteDoc(docInstance);
