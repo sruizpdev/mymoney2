@@ -41,7 +41,11 @@ export class DayTransactionsComponent {
     const today = getDate();
    
 
-    this.data$ = generalService.getExpenses(`${today.year}-${today.month}-${today.day}`, `${today.year}-${today.month}-${today.day}`);
+    // this.data$ = generalService.getExpenses(`${today.year}-${today.month}-${today.day}`, `${today.year}-${today.month}-${today.day}`);
+    this.data$ = generalService.getLastExpenses();
+    
+    
+    
     this.data$.subscribe((res) => {
       console.log(res);
 

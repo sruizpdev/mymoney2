@@ -12,12 +12,13 @@ import {
   collectionData,
   deleteDoc,
   doc,
+  limit,
   orderBy,
   query,
   updateDoc,
   where,
 } from '@angular/fire/firestore';
-import { Observable, map } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -54,9 +55,38 @@ export class GeneralService {
       collectionInstance,
       where('date', '>=', firstDay),
       where('date', '<=', lastDay),
-      orderBy('date', 'desc')
+      orderBy('date', 'desc'),
     );
     return collectionData(queryByDay, { idField: 'id' });
+  }
+  getLastExpenses(): Observable<any[]> {
+    const collectionInstance = collection(this.fs, 'mymoney-expenses2');
+
+    // Paso 1: Obtener la fecha del último documento introducido
+    const queryLatestDate = query(
+      collectionInstance,
+      orderBy('date', 'desc'),
+      limit(1)
+    );
+
+    return collectionData(queryLatestDate, { idField: 'id' }).pipe(
+      // Paso 2: Realizar una nueva consulta para obtener todos los documentos con la misma fecha
+      switchMap((latestDocuments) => {
+        if (latestDocuments.length > 0) {
+          const latestDate = latestDocuments[0]['date'];
+
+          const queryByLatestDate = query(
+            collectionInstance,
+            where('date', '==', latestDate)
+          );
+
+          return collectionData(queryByLatestDate, { idField: 'id' });
+        } else {
+          // Si no hay documentos, devolver un array vacío
+          return [];
+        }
+      })
+    );
   }
   getIncomes(firstDay: string, lastDay: string): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-incomes2');
