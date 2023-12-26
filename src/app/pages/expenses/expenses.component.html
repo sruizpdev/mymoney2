@@ -3,7 +3,7 @@
  <div class="day">
     {{ item.day }}</div>
   <div class="container__data">
-    @for (subItem of item.data; track subItem.id) {
+    @for (subItem of item.data ; track subItem.id) {
     <button
       routerLink="/edit-expense"
       [queryParams]="{

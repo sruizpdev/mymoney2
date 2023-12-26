@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class TotalExpenseComponent {
   currentDay: string = '';
   firstDayOfMonth: string = '';
-  dayFormated:string=''
+  dayFormated: string = '';
 
   total$!: Observable<number>;
 
@@ -24,7 +24,10 @@ export class TotalExpenseComponent {
     this.firstDayOfMonth = `${date.year}-${date.month}-01`;
     this.dayFormated = `${date.day}-${date.month}-${date.year}`;
 
-    this.total$ = generalService.getTotalExpenses(
+    this.loadData();
+  }
+  loadData() {
+    this.total$ = this.generalService.getTotalExpenses(
       this.firstDayOfMonth,
       this.currentDay
     );
