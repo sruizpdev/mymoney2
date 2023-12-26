@@ -17,4 +17,7 @@ export class OptionsComponent {
     alert('funcion deshabilitada');
     //this.generalService.copy();
   }
+
+
+  
 }
