@@ -1,13 +1,13 @@
 <div class="container">
     <div class="header">
       <p>Bienvenido a <span>myMoney2</span></p>
-      <img src="assets/myPassIcon.png" alt="MyPass" />
+      <img src="/assets/hucha.png" alt="My Money" />
   
       <div class="quote__container">
         <p class="quote">
-          "Ya es hora de saber en que se va dinerito"
+          "La verdadera riqueza no está en cuánto ganas, sino en cuánto puedes ahorrar y gestionar sabiamente"
         </p>
-        <cite class="author">- Miguel de Unamuno</cite>
+        <cite class="author">- Sergiotto</cite>
       </div>
     </div>
   
@@ -31,6 +31,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="row__form">
           <!-- <fa-icon [icon]="faUser"></fa-icon> -->
+          <img class="icon" src="/assets/user.png" alt="">
           <input
             class="input__form"
             type="email"
@@ -43,6 +44,7 @@
         </div>
         <div class="row__form">
           <!-- <fa-icon [icon]="faLock"></fa-icon> -->
+          <img class="icon" src="/assets/cerrar.png" alt="">
           <input
             class="input__form"
             type="password"
