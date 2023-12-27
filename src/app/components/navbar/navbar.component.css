@@ -1,10 +1,14 @@
 :host {
   display: block;
 }
-a{ cursor: pointer;}
+
+a {
+  cursor: pointer;
+}
+
 .container {
   background-color: white;
-  
+
 }
 
 .container-top {
@@ -14,17 +18,24 @@ a{ cursor: pointer;}
   padding: 10px;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--green);
+}
+
+
 .avatar-img {
-  width: 50px;
-  border-radius: 50%;
-  border: 1px solid var(--green)
+  width: 40px;
+
+
 }
 
 .logout-icon {
-  width: 40px;
+  width: 30px;
 }
 
-nav{
+nav {
   padding: 10px;
   overflow-x: hidden;
 }

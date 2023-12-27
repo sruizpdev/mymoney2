@@ -1,18 +1,27 @@
 <div class="container">
   <div class="container-top">
-    <img class="avatar-img" src="/assets/ana.jpg" alt="User avatar" />
-    <a (click)="logout()"> <img routerLink="/login" class="logout-icon" src="/assets/exit.png" alt="Logout" /></a>
-   
-  </div>
+    <div class="logo">
+      <img
+        class="avatar-img"
+        src="/assets/hucha.png"
+        alt="My Money Logo"
+      />myMoney2
+    </div>
 
+    <a (click)="logout()">
+      <img
+        routerLink="/login"
+        class="logout-icon"
+        src="/assets/exit.png"
+        alt="Logout"
+    /></a>
+  </div>
   <nav>
     <ul>
       <li routerLink="/home" routerLinkActive="active">Inicio</li>
       <li routerLink="/expenses" routerLinkActive="active">Gastos</li>
       <li routerLink="/incomes" routerLinkActive="active">Ingresos</li>
       <li routerLink="/options" routerLinkActive="active">Opciones</li>
-     
     </ul>
   </nav>
-
 </div>

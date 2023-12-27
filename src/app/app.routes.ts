@@ -12,19 +12,7 @@ import { authGuard } from './auth.guard';
 import { FilterByDatesComponent } from './pages/filter-by-dates/filter-by-dates.component';
 
 export const routes: Routes = [
-  // { path: 'home', component: HomeComponent },
-  // { path: 'expenses', component: ExpensesComponent },
-  // { path: 'incomes', component: IncomesComponent },
-  // { path: 'new-expense', component: NewExpenseComponent },
-  // { path: 'new-income', component: NewIncomeComponent },
-  // { path: 'edit-expense', component: EditExpenseComponent },
-  // { path: 'edit-income', component: EditIncomeComponent },
-  // { path: 'options', component: OptionsComponent },
-  // { path: 'filter-by-dates', component: FilterByDatesComponent },
-  // { path: 'login', component: LoginComponent },
-
-  // { path: '**', redirectTo: 'home' },
-
+  
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'expenses', component: ExpensesComponent, canActivate: [authGuard] },
   { path: 'incomes', component: IncomesComponent, canActivate: [authGuard] },

@@ -18,7 +18,7 @@ import {
   updateDoc,
   where,
 } from '@angular/fire/firestore';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable, map, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +28,7 @@ export class GeneralService {
   constructor(private fs: Firestore, private auth: Auth) {}
 
   isLogged(): boolean {
-    return localStorage.getItem('user') ? true : false;
+   return localStorage.getItem('user') ? true : false;
   }
 
   // login
@@ -38,7 +38,7 @@ export class GeneralService {
   whoIsLogged() {
     return this.auth.currentUser?.uid;
   }
-
+ 
   getAllExpenses(): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2'); //Esta es una collection temporal de datos
     return collectionData(collectionInstance, { idField: 'id' });
