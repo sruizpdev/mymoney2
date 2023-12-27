@@ -36,8 +36,11 @@ export class EditIncomeComponent {
   }
 
   editIncomeForm = new FormGroup({
-    amount: new FormControl('', [Validators.required]),
-    date: new FormControl('2023-12-31', [Validators.required]),
+    amount: new FormControl('',  [
+      Validators.required,
+      Validators.pattern(/^\d+([\.,]\d{1,2})?$/),
+    ]),
+    date: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
     notes: new FormControl('', [Validators.required]),
   });
@@ -55,6 +58,12 @@ export class EditIncomeComponent {
     if (this.editIncomeForm.invalid) {
       if (this.editIncomeForm.get('amount')?.hasError('required')) {
         errorMessage += 'Por favor, introduzca una cantidad.\n';
+      } else {
+        const amountValue = this.editIncomeForm.get('amount')?.value;
+        if (!amountValue || !/^\d+([\.,]\d{1,2})?$/.test(amountValue)) {
+          errorMessage +=
+            'Por favor, introduzca un formato de cantidad válido.\n(Máximo dos decimales)';
+        }
       }
       if (this.editIncomeForm.get('date')?.hasError('required')) {
         errorMessage += 'Por favor, seleccione una fecha.\n';

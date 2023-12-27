@@ -38,8 +38,11 @@ export class EditExpenseComponent {
   }
 
   editExpenseForm = new FormGroup({
-    amount: new FormControl('', [Validators.required]),
-    date: new FormControl('2023-12-31', [Validators.required]),
+    amount: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\d+([\.,]\d{1,2})?$/),
+    ]),
+    date: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
     notes: new FormControl('', [Validators.required]),
   });
@@ -57,6 +60,12 @@ export class EditExpenseComponent {
     if (this.editExpenseForm.invalid) {
       if (this.editExpenseForm.get('amount')?.hasError('required')) {
         errorMessage += 'Por favor, introduzca una cantidad.\n';
+      } else {
+        const amountValue = this.editExpenseForm.get('amount')?.value;
+        if (!amountValue || !/^\d+([\.,]\d{1,2})?$/.test(amountValue)) {
+          errorMessage +=
+            'Por favor, introduzca un formato de cantidad válido.\n(Máximo dos decimales)';
+        }
       }
       if (this.editExpenseForm.get('date')?.hasError('required')) {
         errorMessage += 'Por favor, seleccione una fecha.\n';

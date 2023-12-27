@@ -28,7 +28,10 @@ export class NewExpenseComponent {
   constructor(private generalService: GeneralService) {}
 
   newExpenseForm = new FormGroup({
-    amount: new FormControl('', [Validators.required]),
+    amount: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^\d+([\.,]\d{1,2})?$/),
+    ]),
     date: new FormControl(this.getCurrentDay(), [Validators.required]),
     type: new FormControl('', [Validators.required]),
     notes: new FormControl('', [Validators.required]),
@@ -56,6 +59,12 @@ export class NewExpenseComponent {
     if (this.newExpenseForm.invalid) {
       if (this.newExpenseForm.get('amount')?.hasError('required')) {
         errorMessage += 'Por favor, introduzca una cantidad.\n';
+      } else {
+        const amountValue = this.newExpenseForm.get('amount')?.value;
+        if (!amountValue || !/^\d+([\.,]\d{1,2})?$/.test(amountValue)) {
+          errorMessage +=
+            'Por favor, introduzca un formato de cantidad válido.\nMáximo dos decimales';
+        }
       }
       if (this.newExpenseForm.get('date')?.hasError('required')) {
         errorMessage += 'Por favor, seleccione una fecha.\n';
