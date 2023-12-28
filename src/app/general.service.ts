@@ -24,11 +24,10 @@ import { Observable, map, of, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class GeneralService {
-  
   constructor(private fs: Firestore, private auth: Auth) {}
 
   isLogged(): boolean {
-   return localStorage.getItem('user') ? true : false;
+    return localStorage.getItem('user') ? true : false;
   }
 
   // login
@@ -38,7 +37,7 @@ export class GeneralService {
   whoIsLogged() {
     return this.auth.currentUser?.uid;
   }
- 
+
   getAllExpenses(): Observable<any[]> {
     const collectionInstance = collection(this.fs, 'mymoney-expenses2'); //Esta es una collection temporal de datos
     return collectionData(collectionInstance, { idField: 'id' });
@@ -81,7 +80,7 @@ export class GeneralService {
       collectionInstance,
       where('date', '>=', firstDay),
       where('date', '<=', lastDay),
-      orderBy('date', 'desc'),
+      orderBy('date', 'desc')
     );
     return collectionData(queryByDay, { idField: 'id' });
   }
