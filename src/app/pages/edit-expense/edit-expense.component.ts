@@ -82,17 +82,14 @@ export class EditExpenseComponent {
         alert(errorMessage);
       }
     } else {
-      const res = confirm('¿Está seguro?');
-      if (res) {
-        this.generalService
-          .updateExpense(this.id, data)
-          .then(() => {
-            this.router.navigate(['/expenses']);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+      this.generalService
+        .updateExpense(this.id, data)
+        .then(() => {
+          this.router.navigate(['/expenses']);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
 

@@ -2,20 +2,22 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GeneralService } from '../../general.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-income',
   standalone: true,
-  imports: [
-    CommonModule, ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './edit-income.component.html',
   styleUrl: './edit-income.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditIncomeComponent {
-
   router = inject(Router);
   id!: string;
   constructor(
@@ -36,7 +38,7 @@ export class EditIncomeComponent {
   }
 
   editIncomeForm = new FormGroup({
-    amount: new FormControl('',  [
+    amount: new FormControl('', [
       Validators.required,
       Validators.pattern(/^\d+([\.,]\d{1,2})?$/),
     ]),
@@ -80,17 +82,14 @@ export class EditIncomeComponent {
         alert(errorMessage);
       }
     } else {
-      const res = confirm('¿Está seguro?');
-      if (res) {
-        this.generalService
-          .updateIncome(this.id, data)
-          .then(() => {
-            this.router.navigate(['/incomes']);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+      this.generalService
+        .updateIncome(this.id, data)
+        .then(() => {
+          this.router.navigate(['/incomes']);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
 
@@ -106,4 +105,4 @@ export class EditIncomeComponent {
         .catch((err) => console.log(err));
     }
   }
- }
+}
