@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.container {
+  margin: 10px;
+}
+
+.month-title {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.sub-title {
+  font-size: 10px;
+}
+
+.month-resume {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.sub-resume {
+  display: flex;
+  flex-direction: column;
+}
+
+span {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.img-container {
+  
+  display: flex;
+  justify-content:flex-start;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 30px;
+}

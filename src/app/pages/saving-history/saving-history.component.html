@@ -1,0 +1,45 @@
+<div class="container">
+  @for (item of allByMonthArray2 ; track $index ) {
+
+  <div class="month-title">{{ item.month | uppercase }}</div>
+  <div
+    class="month-resume"
+    routerLink="/movements-by-type"
+    [queryParams]="{
+      firstDay: item.firstDay,
+      lastDay: item.lastDay
+    }"
+  >
+    <div class="sub-resume">
+      <div class="img-container">
+        <img src="/assets/ingreso.png" alt="Ingresos" />
+      </div>
+
+      <p class="sub-title">Ingresos:</p>
+      <p>
+        {{ item.incomes | number : "1.2-2" }}<span>{{ " " }}PLN</span>
+      </p>
+    </div>
+    <div class="sub-resume">
+      <div class="img-container">
+        <img src="/assets/pago.png" alt="Pago contactless" />
+      </div>
+      <p class="sub-title">Gastos:</p>
+      <p>
+        {{ item.expenses | number : "1.2-2" }}<span>{{ " " }}PLN</span>
+      </p>
+    </div>
+    <div class="sub-resume">
+      <div class="img-container">
+        <img src="/assets/resumen.png" alt="Resumen de gastos" />
+      </div>
+      <p class="sub-title">Ahorro:</p>
+      <p>
+        {{ item.incomes - item.expenses | number : "1.2-2"
+        }}<span>{{ " " }}PLN</span>
+      </p>
+    </div>
+  </div>
+
+  }
+</div>

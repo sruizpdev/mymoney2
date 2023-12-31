@@ -1,0 +1,41 @@
+
+<div class="date">{{date |uppercase}}</div>
+<div class="container">
+
+  
+  @for (item of data$|async; track $index) {
+  <div class="type">
+    @if (item.type=='coche') {
+    <img src="/assets/coche.png" alt="" />
+    } @if (item.type=='piso') {
+    <img src="/assets/piso.png" alt="" />
+    } @if (item.type=='farmacia') {
+    <img src="/assets/farmacia.png" alt="" />
+    
+    }@if (item.type=='ocio') {
+    <img src="/assets/ocio.png" alt="" />
+    }@if (item.type=='telefono') {
+    <img src="/assets/telefono.png" alt="" />
+    } @if (item.type=='transporte') {
+    <img src="/assets/transporte.png" alt="" />
+    } @if (item.type=='gatos') {
+    <img src="/assets/gatos.png" alt="" />
+    } @if (item.type=='caprichos') {
+    <img src="/assets/caprichos.png" alt="" />
+    }@if (item.type=='otros') {
+      <img src="/assets/otros.png" alt="" />
+      }@if (item.type=='comida') {
+        <img src="/assets/comida.png" alt="" />
+        }
+
+    <div class="quantity">
+      <div class="quantity-type">{{ item.type | uppercase }}</div>
+      <div class="quantity-total">
+        <span class="total">{{ item.total | number : "1.2-2" }}</span>
+        <span class="pln">{{ " " }}PLN</span>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+`

@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+.date{
+  padding-left: 10px;
+  margin-top: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.container {
+  margin: 0px 10px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+.type {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--gray)
+;
+  
+}
+.quantity{
+  display: flex;
+  width: 100%;
+  justify-content: space-between; 
+  
+}
+.pln {
+  text-align: right;
+}
+
+img {
+  height: 30px;
+}
+
+.pln {
+  font-size: 10px;
+
+}

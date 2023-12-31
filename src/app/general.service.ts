@@ -158,11 +158,11 @@ export class GeneralService {
 
   getDate() {
     const currentDate = new Date();
-    const year = currentDate.getFullYear();
+    const year = currentDate.getFullYear().toString();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getDate()).padStart(2, '0');
 
-    const lastDay = new Date(year, Number(month), 0).getDate();
+    const lastDay = new Date(Number(year), Number(month), 0).getDate().toString();
     return { year, month, day, lastDay };
   }
 
@@ -184,6 +184,9 @@ export class GeneralService {
         }
         // if (elementWithoutId['type'] == 'teléfono') {
         //   elementWithoutId['type'] = 'telefono';
+        // }
+        // if (elementWithoutId['type'] == 'farmacia y salud') {
+        //   elementWithoutId['type'] = 'farmacia';
         // }
 
         delete elementWithoutId['day'];
