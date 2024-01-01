@@ -38,44 +38,37 @@ export class GeneralService {
     return this.auth.currentUser?.uid;
   }
 
-  getAllExpenses(): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-expenses2'); //Esta es una collection temporal de datos
-    return collectionData(collectionInstance, { idField: 'id' });
-  }
-  getAllIncomes(): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-incomes2'); //Esta es una collection temporal de datos
-    return collectionData(collectionInstance, { idField: 'id' });
-  }
+  
 
   addNewExpense(data: Object) {
-    const dbInstance = collection(this.fs, 'mymoney-expenses2');
+    const dbInstance = collection(this.fs, 'mymoney-expenses');
     return addDoc(dbInstance, data);
   }
   addNewIncome(data: Object) {
-    const dbInstance = collection(this.fs, 'mymoney-incomes2');
+    const dbInstance = collection(this.fs, 'mymoney-incomes');
     return addDoc(dbInstance, data);
   }
   deleteExpense(id: string) {
-    const docInstance = doc(this.fs, 'mymoney-expenses2', id);
+    const docInstance = doc(this.fs, 'mymoney-expenses', id);
     return deleteDoc(docInstance);
   }
 
   updateExpense(id: string, data: object) {
-    const docInstance = doc(this.fs, 'mymoney-expenses2', id);
+    const docInstance = doc(this.fs, 'mymoney-expenses', id);
     return updateDoc(docInstance, data);
   }
   deleteIncome(id: string) {
-    const docInstance = doc(this.fs, 'mymoney-incomes2', id);
+    const docInstance = doc(this.fs, 'mymoney-incomes', id);
     return deleteDoc(docInstance);
   }
 
   updateIncome(id: string, data: object) {
-    const docInstance = doc(this.fs, 'mymoney-incomes2', id);
+    const docInstance = doc(this.fs, 'mymoney-incomes', id);
     return updateDoc(docInstance, data);
   }
 
   getExpenses(firstDay: string, lastDay: string): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-expenses2');
+    const collectionInstance = collection(this.fs, 'mymoney-expenses');
     const queryByDay = query(
       collectionInstance,
       where('date', '>=', firstDay),
@@ -85,7 +78,7 @@ export class GeneralService {
     return collectionData(queryByDay, { idField: 'id' });
   }
   getLastExpenses(): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-expenses2');
+    const collectionInstance = collection(this.fs, 'mymoney-expenses');
 
     // Paso 1: Obtener la fecha del último documento introducido
     const queryLatestDate = query(
@@ -114,7 +107,7 @@ export class GeneralService {
     );
   }
   getIncomes(firstDay: string, lastDay: string): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-incomes2');
+    const collectionInstance = collection(this.fs, 'mymoney-incomes');
     const queryByDay = query(
       collectionInstance,
       where('date', '>=', firstDay),
@@ -124,7 +117,7 @@ export class GeneralService {
     return collectionData(queryByDay, { idField: 'id' });
   }
   getTotalExpenses(firstDay: string, lastDay: string): Observable<number> {
-    const collectionInstance = collection(this.fs, 'mymoney-expenses2');
+    const collectionInstance = collection(this.fs, 'mymoney-expenses');
     const queryByDay = query(
       collectionInstance,
       where('date', '>=', firstDay),
@@ -140,7 +133,7 @@ export class GeneralService {
     );
   }
   getTotalIncomes(firstDay: string, lastDay: string): Observable<number> {
-    const collectionInstance = collection(this.fs, 'mymoney-incomes2');
+    const collectionInstance = collection(this.fs, 'mymoney-incomes');
     const queryByDay = query(
       collectionInstance,
       where('date', '>=', firstDay),
@@ -166,12 +159,18 @@ export class GeneralService {
     return { year, month, day, lastDay };
   }
 
-  //Esta función copia una collection y formatea varios campos (elimina espacios en blanco, acentos, etc.)
-  //TODO hay que hacer lo mismo con los ingresos y formatear el texto nómina para quitarle el acento
+  getAllExpenses(): Observable<any[]> {
+    const collectionInstance = collection(this.fs, 'mymoney-expenses'); 
+    return collectionData(collectionInstance, { idField: 'id' });
+  }
+  getAllIncomes(): Observable<any[]> {
+    const collectionInstance = collection(this.fs, 'mymoney-incomes'); 
+    return collectionData(collectionInstance, { idField: 'id' });
+  }
   copy() {
     this.getAllIncomes().subscribe((res) => {
       res.forEach((element) => {
-        const dbInstance = collection(this.fs, 'mymoney-incomes2'); // o mymoney-expenses, depende
+        const dbInstance = collection(this.fs, 'mymoney-incomes'); 
 
         const mergedDate = `${element['year']}-${element['month']}-${element['day']}`;
 
@@ -193,11 +192,11 @@ export class GeneralService {
         delete elementWithoutId['month'];
         delete elementWithoutId['year'];
 
-        //ESTA LINEA NO ESTÁ PROBADA
+      
         elementWithoutId['notes'] = elementWithoutId['notes'].trim();
 
         addDoc(dbInstance, { ...elementWithoutId, date: mergedDate });
-        // addDoc(dbInstance, { ...elementWithoutId });
+       
       });
     });
   }

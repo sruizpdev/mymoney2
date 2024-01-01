@@ -35,7 +35,7 @@ export class SavingHistoryComponent {
   }
 
   generateDateArray() {
-    const startDate = new Date('2023-10-01');
+    const startDate = new Date('2023-05-01');
     const currentDate = new Date();
 
     const dateArray = [];
@@ -75,66 +75,66 @@ export class SavingHistoryComponent {
   allByMonthArray!: Observable<MonthData[]>;
   allByMonthArray2!: any[];
   getHistory() {
-    // this.monthInfoArray = this.generateDateArray();
-    // console.log(this.monthInfoArray);
+    this.monthInfoArray = this.generateDateArray();
+    console.log(this.monthInfoArray);
 
-    // const observables = this.monthInfoArray.map((month) => {
-    //   const expenses$ = this.generalService.getTotalExpenses(
-    //     month.firstDay,
-    //     month.lastDay
-    //   );
-    //   const incomes$ = this.generalService.getTotalIncomes(
-    //     month.firstDay,
-    //     month.lastDay
-    //   );
+    const observables = this.monthInfoArray.map((month) => {
+      const expenses$ = this.generalService.getTotalExpenses(
+        month.firstDay,
+        month.lastDay
+      );
+      const incomes$ = this.generalService.getTotalIncomes(
+        month.firstDay,
+        month.lastDay
+      );
 
-    //   return zip(expenses$, incomes$).pipe(
-    //     map(([expenses, incomes]) => ({
-    //       expenses,
-    //       incomes,
-    //       month: month.month,
-    //       firstDay: month.firstDay,
-    //       lastDay: month.lastDay,
-    //     }))
-    //   );
-    // });
-    // this.allByMonthArray = zip(observables);
-    this.allByMonthArray2 = [
-      {
-        expenses: 5000.44,
-        incomes: 10000.55,
-        month: 'Diciembre, 2023',
-        firstDay: '2023-12-01',
-        lastDay: '2023-12-31',
-      },
-      {
-        expenses: 5000.44,
-        incomes: 10000.55,
-        month: 'Noviembre, 2023',
-        firstDay: '2023-11-01',
-        lastDay: '2023-11-30',
-      },
-      {
-        expenses: 5000.44,
-        incomes: 10000.55,
-        month: 'Octubre, 2023',
-        firstDay: '2023-10-01',
-        lastDay: '2023-10-31',
-      },
-      {
-        expenses: 5000.44,
-        incomes: 10000.55,
-        month: 'septiembre, 2023',
-        firstDay: '2023-09-01',
-        lastDay: '2023-09-30',
-      },{
-        expenses: 5000.44,
-        incomes: 10000.55,
-        month: 'Agosto, 2023',
-        firstDay: '2023-08-01',
-        lastDay: '2023-08-31',
-      },
-    ];
+      return zip(expenses$, incomes$).pipe(
+        map(([expenses, incomes]) => ({
+          expenses,
+          incomes,
+          month: month.month,
+          firstDay: month.firstDay,
+          lastDay: month.lastDay,
+        }))
+      );
+    });
+    this.allByMonthArray = zip(observables);
+    // this.allByMonthArray2 = [
+    //   {
+    //     expenses: 5000.44,
+    //     incomes: 10000.55,
+    //     month: 'Diciembre, 2023',
+    //     firstDay: '2023-12-01',
+    //     lastDay: '2023-12-31',
+    //   },
+    //   {
+    //     expenses: 5000.44,
+    //     incomes: 10000.55,
+    //     month: 'Noviembre, 2023',
+    //     firstDay: '2023-11-01',
+    //     lastDay: '2023-11-30',
+    //   },
+    //   {
+    //     expenses: 5000.44,
+    //     incomes: 10000.55,
+    //     month: 'Octubre, 2023',
+    //     firstDay: '2023-10-01',
+    //     lastDay: '2023-10-31',
+    //   },
+    //   {
+    //     expenses: 5000.44,
+    //     incomes: 10000.55,
+    //     month: 'septiembre, 2023',
+    //     firstDay: '2023-09-01',
+    //     lastDay: '2023-09-30',
+    //   },{
+    //     expenses: 5000.44,
+    //     incomes: 10000.55,
+    //     month: 'Agosto, 2023',
+    //     firstDay: '2023-08-01',
+    //     lastDay: '2023-08-31',
+    //   },
+    // ];
   }
 
   printMonth(firstDay: string, lastDay: string) {

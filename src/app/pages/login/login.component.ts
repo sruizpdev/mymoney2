@@ -8,21 +8,19 @@ import {
 } from '@angular/forms';
 
 import { Router } from '@angular/router';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+
 import { GeneralService } from '../../general.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  // imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
+
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  // faUser = faUser;
-  // faLock = faLock;
+ 
   loginErr = false;
   generalService = inject(GeneralService);
   router = inject(Router);

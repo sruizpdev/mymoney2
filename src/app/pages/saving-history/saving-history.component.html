@@ -1,5 +1,5 @@
 <div class="container">
-  @for (item of allByMonthArray2 ; track $index ) {
+  @for (item of allByMonthArray|async ; track $index ) {
 
   <div class="month-title">{{ item.month | uppercase }}</div>
   <div
