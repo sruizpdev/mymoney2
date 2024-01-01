@@ -38,8 +38,6 @@ export class GeneralService {
     return this.auth.currentUser?.uid;
   }
 
-  
-
   addNewExpense(data: Object) {
     const dbInstance = collection(this.fs, 'mymoney-expenses');
     return addDoc(dbInstance, data);
@@ -155,22 +153,24 @@ export class GeneralService {
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const day = String(currentDate.getDate()).padStart(2, '0');
 
-    const lastDay = new Date(Number(year), Number(month), 0).getDate().toString();
+    const lastDay = new Date(Number(year), Number(month), 0)
+      .getDate()
+      .toString();
     return { year, month, day, lastDay };
   }
 
   getAllExpenses(): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-expenses'); 
+    const collectionInstance = collection(this.fs, 'mymoney-expenses');
     return collectionData(collectionInstance, { idField: 'id' });
   }
   getAllIncomes(): Observable<any[]> {
-    const collectionInstance = collection(this.fs, 'mymoney-incomes'); 
+    const collectionInstance = collection(this.fs, 'mymoney-incomes');
     return collectionData(collectionInstance, { idField: 'id' });
   }
   copy() {
-    this.getAllIncomes().subscribe((res) => {
+    this.getAllExpenses().subscribe((res) => {
       res.forEach((element) => {
-        const dbInstance = collection(this.fs, 'mymoney-incomes'); 
+        const dbInstance = collection(this.fs, 'mymoney-expenses');
 
         const mergedDate = `${element['year']}-${element['month']}-${element['day']}`;
 
@@ -178,25 +178,23 @@ export class GeneralService {
 
         delete elementWithoutId.id;
 
-        if (elementWithoutId['type'] == 'nómina') {
-          elementWithoutId['type'] = 'nomina';
+        // if (elementWithoutId['type'] == 'nómina') {
+        //   elementWithoutId['type'] = 'nomina';
+        // }
+        if (elementWithoutId['type'] == 'teléfono') {
+          elementWithoutId['type'] = 'telefono';
         }
-        // if (elementWithoutId['type'] == 'teléfono') {
-        //   elementWithoutId['type'] = 'telefono';
-        // }
-        // if (elementWithoutId['type'] == 'farmacia y salud') {
-        //   elementWithoutId['type'] = 'farmacia';
-        // }
+        if (elementWithoutId['type'] == 'farmacia y salud') {
+          elementWithoutId['type'] = 'farmacia';
+        }
 
         delete elementWithoutId['day'];
         delete elementWithoutId['month'];
         delete elementWithoutId['year'];
 
-      
         elementWithoutId['notes'] = elementWithoutId['notes'].trim();
 
         addDoc(dbInstance, { ...elementWithoutId, date: mergedDate });
-       
       });
     });
   }
