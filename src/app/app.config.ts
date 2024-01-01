@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -6,14 +6,15 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 
 import { routes } from './app.routes';
 import { enviroment } from './enviroments/enviroment.prod';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    importProvidersFrom(
-      provideFirebaseApp(() => initializeApp(enviroment.firebaseConfig)),
-      provideFirestore(() => getFirestore()),
-      provideAuth(() => getAuth())
-    ),
-  ],
+    importProvidersFrom(provideFirebaseApp(() => initializeApp(enviroment.firebaseConfig)), provideFirestore(() => getFirestore()), provideAuth(() => getAuth())),
+    provideServiceWorker('ngsw-worker.js', {
+        enabled: !isDevMode(),
+        registrationStrategy: 'registerWhenStable:30000'
+    })
+],
 };
