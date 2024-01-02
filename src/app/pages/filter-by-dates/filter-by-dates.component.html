@@ -10,6 +10,7 @@
           name="initialDate"
           id="initialDate"
           formControlName="initialDate"
+          #initialDate
         />
       </div>
 
@@ -21,6 +22,7 @@
           name="finalDate"
           id="finalDate"
           formControlName="finalDate"
+          #finalDate
         />
       </div>
     </div>
@@ -29,38 +31,89 @@
     </div>
   </form>
 </div>
+@if (data$) {
+<div class="title">
+  Gastos desde
+  <span class="title-date">{{ initialDate.value | date : "dd-MM-yyyy" }}</span>
+  a
+  <span class="title-date">{{ finalDate.value }}</span>
+</div>
+}
 <div class="container">
-    @for (item of data$ |async; track item.day ) {
-   <div class="day">
-      {{ item.day }}</div>
-    <div class="container__data">
-      @for (subItem of item.data ; track subItem.id) {
-      <button
-        routerLink="/edit-expense"
-        [queryParams]="{
-          id: subItem.id,
-          type:subItem.type,
-          date:subItem.date,
-          amount:subItem.amount,
-          notes:subItem.notes
-        }"
-        type="button"
-      >
-        <div class="transaction">
-          <div class="left__content">
-            <img src="/assets/{{ subItem.type }}.png" alt="" />
-            <span class="notes">{{ subItem.notes | uppercase }}</span>
-          </div>
-  
-          <div class="right__content">
-            <span class="amount"
-              >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
-            </span>
-          </div>
+  @for (item of data$ |async; track item.day ) {
+  <div class="day">
+    {{ item.day }}
+  </div>
+  <div class="container__data">
+    @for (subItem of item.data ; track subItem.id) {
+    <button
+      routerLink="/edit-expense"
+      [queryParams]="{
+        id: subItem.id,
+        type: subItem.type,
+        date: subItem.date,
+        amount: subItem.amount,
+        notes: subItem.notes
+      }"
+      type="button"
+    >
+      <div class="transaction">
+        <div class="left__content">
+          <img src="/assets/{{ subItem.type }}.png" alt="" />
+          <span class="notes">{{ subItem.notes | uppercase }}</span>
         </div>
-      </button>
-      }
-    </div>
+
+        <div class="right__content">
+          <span class="amount"
+            >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
+          </span>
+        </div>
+      </div>
+    </button>
     }
   </div>
+  }
+</div>
+@if(dataIncomes$){
+<div class="title">
+  Ingresos desde
+  <span class="title-date">{{ initialDate.value | date : "dd-MM-yyyy" }}</span>
+  a
+  <span class="title-date">{{ finalDate.value }}</span>
+</div>
+}
+<div class="container">
+  @for (item of dataIncomes$ |async; track item.day ) {
+  <div class="day">
+    {{ item.day }}
+  </div>
+  <div class="container__data">
+    @for (subItem of item.data ; track subItem.id) {
+    <button
+      routerLink="/edit-income"
+      [queryParams]="{
+        id: subItem.id,
+        type: subItem.type,
+        date: subItem.date,
+        amount: subItem.amount,
+        notes: subItem.notes
+      }"
+      type="button"
+    >
+      <div class="transaction">
+        <div class="left__content">
+          <img src="/assets/{{ subItem.type }}.png" alt="" />
+          <span class="notes">{{ subItem.notes | uppercase }}</span>
+        </div>
 
+        <div class="right__content">
+          <span class="amount"
+            >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
+          </span>
+        </div>
+      </div>
+    </button>
+    }
+  </div>
+  }
+</div>

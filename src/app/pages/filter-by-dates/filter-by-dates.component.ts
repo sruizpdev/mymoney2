@@ -31,6 +31,8 @@ interface DailyMovements {
 })
 export class FilterByDatesComponent {
   data$!: Observable<any>;
+  dataIncomes$!:Observable<any>
+  
   constructor(private generalService: GeneralService) {}
 
   datesForm = new FormGroup({
@@ -84,7 +86,32 @@ export class FilterByDatesComponent {
           return newArrayMovements;
         })
       );
-     
+      this.dataIncomes$ = this.generalService
+      .getIncomes(
+        dates.initialDate!,dates.finalDate!
+      )
+      .pipe(
+        map((res) => {
+          const newArrayMovements: DailyMovements[] = res.reduce(
+            (result, item) => {
+              const existingItem = result.find(
+                (elem: { day: string }) => elem.day === item.date
+              );
+              if (existingItem) {
+                existingItem.data.push(item);
+              } else {
+                result.push({
+                  day: item.date,
+                  data: [item],
+                });
+              }
+              return result;
+            },
+            []
+          );
+          return newArrayMovements;
+        })
+      );
     }
   }
 }

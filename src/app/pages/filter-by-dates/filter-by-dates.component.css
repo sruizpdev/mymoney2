@@ -139,3 +139,6 @@ button {
   border: none;
   cursor: pointer;
 }
+.title-date{
+  color:var(--green)
+}
