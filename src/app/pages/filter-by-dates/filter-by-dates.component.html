@@ -1,0 +1,66 @@
+<div class="title">Busqueda por fecha</div>
+<div class="container-one">
+  <form (ngSubmit)="onSubmit()" [formGroup]="datesForm">
+    <div class="dates">
+      <div class="date-input">
+        <label class="calendar-title" for="initialDate">Desde...</label>
+        <input
+          class="calendar"
+          type="date"
+          name="initialDate"
+          id="initialDate"
+          formControlName="initialDate"
+        />
+      </div>
+
+      <div class="date-input">
+        <label class="calendar-title" for="finalDate">Hasta...</label>
+        <input
+          class="calendar"
+          type="date"
+          name="finalDate"
+          id="finalDate"
+          formControlName="finalDate"
+        />
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn">Buscar</button>
+    </div>
+  </form>
+</div>
+<div class="container">
+    @for (item of data$ |async; track item.day ) {
+   <div class="day">
+      {{ item.day }}</div>
+    <div class="container__data">
+      @for (subItem of item.data ; track subItem.id) {
+      <button
+        routerLink="/edit-expense"
+        [queryParams]="{
+          id: subItem.id,
+          type:subItem.type,
+          date:subItem.date,
+          amount:subItem.amount,
+          notes:subItem.notes
+        }"
+        type="button"
+      >
+        <div class="transaction">
+          <div class="left__content">
+            <img src="/assets/{{ subItem.type }}.png" alt="" />
+            <span class="notes">{{ subItem.notes | uppercase }}</span>
+          </div>
+  
+          <div class="right__content">
+            <span class="amount"
+              >{{ subItem.amount }}<span class="pln">{{ " " }}PLN</span>
+            </span>
+          </div>
+        </div>
+      </button>
+      }
+    </div>
+    }
+  </div>
+
