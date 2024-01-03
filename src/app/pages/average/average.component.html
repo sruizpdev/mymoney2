@@ -1,22 +1,46 @@
-<div class="title">Media de gasto diario según ahorro deseado</div>
+<div class="title">Calcule el gasto diario</div>
 <div class="container">
-  <div class="row-1">
-    <p>Cantidad disponible:</p>
-    <p class="total-txt">
-      {{ total$ | async }}<span class="pln-txt">PLN</span>
-    </p>
-  </div>
-  <div class="row-2">
-    <div class="column">
-      <p>Quieres ahorrar:</p>
-      <p>{{ valueBar | number : "1.2-2" }}</p>
-    </div>
-    <div class="column">
-      <p>Gasto diario máximo:</p>
-      <p>{{ average | number : "1.2-2" }} <span>PLN</span></p>
+  <div class="row">
+    <div class="col">
+      <img class="img-small" src="/assets/dinero.png" alt="" />
+      <div class="col-text">
+        <p class="txt-small">Cantidad disponible:</p>
+        <p class="amount">
+          {{ total$ | async }}<span class="pln-txt">{{ " " }}PLN</span>
+        </p>
+      </div>
     </div>
   </div>
-  <div class="row-3">
+  <div class="row">
+    <div class="col">
+      <img class="img-small" src="/assets/ahorro.png" alt="" />
+      <div class="col-text">
+        <p class="txt-small">Quieres ahorrar:</p>
+        <p class="amount">
+          {{ valueBar | number : "1.2-2"
+          }}<span class="pln-txt">{{ " " }}PLN</span>
+        </p>
+      </div>
+    </div>
+    <div class="col">
+      <img class="img-small" src="/assets/maximo.png" alt="" />
+      <div class="col-text">
+        <p class="txt-small">Gasto diario máximo:</p>
+        <p class="amount">
+          {{ average | number : "1.2-2" }}
+          <span class="pln-txt">{{ " " }}PLN</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="title">Deslice para calcular</div>
+
+  <div class="range-bar-container">
+    <div class="range-bar-quantities">
+      <p>0 PLN</p>
+      <p>{{ maxValue }}{{' '}}PLN</p>
+    </div>
+
     <input
       class="range-bar"
       type="range"

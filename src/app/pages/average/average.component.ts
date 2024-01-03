@@ -21,7 +21,7 @@ export class AverageComponent {
   firstDay!: string;
   dayFormated!: string;
   lastDay!: string;
-  average!: number;
+  average: number=0;
   maxValue!: number;
   remaining!: number;
   valueBar: number = 0.00; // Valor inicial de la barra
