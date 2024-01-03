@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+.title {
+  margin: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.row-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-3 {
+  display: flex;
+}
+
+.column {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  margin: 10px;
+  padding: 10px;
+  flex: 1
+}
+
+.range-bar {
+  flex: 1;
+  margin: 10px;
+  height: 2px;
+  appearance: none;
+  background-color: var(--green);
+  cursor: pointer;
+}
+

@@ -1,0 +1,30 @@
+<div class="title">Media de gasto diario según ahorro deseado</div>
+<div class="container">
+  <div class="row-1">
+    <p>Cantidad disponible:</p>
+    <p class="total-txt">
+      {{ total$ | async }}<span class="pln-txt">PLN</span>
+    </p>
+  </div>
+  <div class="row-2">
+    <div class="column">
+      <p>Quieres ahorrar:</p>
+      <p>{{ valueBar | number : "1.2-2" }}</p>
+    </div>
+    <div class="column">
+      <p>Gasto diario máximo:</p>
+      <p>{{ average | number : "1.2-2" }} <span>PLN</span></p>
+    </div>
+  </div>
+  <div class="row-3">
+    <input
+      class="range-bar"
+      type="range"
+      min="0"
+      [max]="maxValue"
+      step="0.01"
+      [(ngModel)]="valueBar"
+      (ngModelChange)="calcAverage()"
+    />
+  </div>
+</div>

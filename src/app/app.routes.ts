@@ -12,6 +12,7 @@ import { authGuard } from './auth.guard';
 import { FilterByDatesComponent } from './pages/filter-by-dates/filter-by-dates.component';
 import { SavingHistoryComponent } from './pages/saving-history/saving-history.component';
 import { MovementsByTypeComponent } from './pages/movements-by-type/movements-by-type.component';
+import { AverageComponent } from './pages/average/average.component';
 
 // export const routes: Routes = [
 //   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
@@ -48,11 +49,16 @@ import { MovementsByTypeComponent } from './pages/movements-by-type/movements-by
 //     component: MovementsByTypeComponent,
 //     canActivate: [authGuard],
 //   },
-//   {
-//     path: 'saving-history',
-//     component: SavingHistoryComponent,
-//     canActivate: [authGuard],
-//   },
+  // {
+  //   path: 'saving-history',
+  //   component: SavingHistoryComponent,
+  //   canActivate: [authGuard],
+  // },
+  // {
+  //   path: 'average',
+  //   component: AverageComponent,
+  //   canActivate: [authGuard],
+  // },
 //   { path: 'login', component: LoginComponent },
 //   { path: '**', redirectTo: 'home' },
 
@@ -95,6 +101,11 @@ export const routes: Routes = [
   {
     path: 'saving-history',
     component: SavingHistoryComponent,
+    
+  },
+  {
+    path: 'average',
+    component: AverageComponent,
     
   },
   { path: 'login', component: LoginComponent },
