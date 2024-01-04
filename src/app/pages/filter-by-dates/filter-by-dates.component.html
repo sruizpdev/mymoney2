@@ -33,9 +33,9 @@
 </div>
 @if (data$) {
 <div class="title">
-  Gastos desde
+  {{ msgExpenses }}
   <span class="title-date">{{ initialDate.value | date : "dd-MM-yyyy" }}</span>
-  a
+  -
   <span class="title-date">{{ finalDate.value }}</span>
 </div>
 }
@@ -76,9 +76,9 @@
 </div>
 @if(dataIncomes$){
 <div class="title">
-  Ingresos desde
+  {{ msgIncomes }}
   <span class="title-date">{{ initialDate.value | date : "dd-MM-yyyy" }}</span>
-  a
+  -
   <span class="title-date">{{ finalDate.value }}</span>
 </div>
 }

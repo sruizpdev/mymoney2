@@ -24,7 +24,7 @@ export class AverageComponent {
   average: number=0;
   maxValue!: number;
   remaining!: number;
-  valueBar: number = 0.00; // Valor inicial de la barra
+  valueBar: number = 0; // Valor inicial de la barra
   daysLeft!: number;
 
   calcAverage(): void {
@@ -59,6 +59,7 @@ export class AverageComponent {
     );
     this.total$.subscribe((value: number) => {
       this.maxValue = value;
+      this.average = (this.maxValue - this.valueBar) / this.daysLeft;
     });
 
     this.daysLeft =

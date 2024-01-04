@@ -15,8 +15,8 @@
 }
 
 .title {
-  margin: 20px 10px 5px 10px;
-  font-weight: bold;
+  margin: 20px 10px 10px 10px;
+  font-weight: bold;color: var(--green);
 }
 
 .dates {
@@ -46,6 +46,7 @@
 }
 .buttons{
   display: flex;
+  margin-top:20px;
 }
 .btn {
   background-color: var(--light-gray);
@@ -59,6 +60,10 @@
   background-color: var(--green);
   color: white;
   cursor: pointer;
+}
+.detective{
+  width: 30px;
+  height: 30px;
 }
 
 :host {
@@ -138,6 +143,7 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+
 }
 .title-date{
   color:var(--green)
