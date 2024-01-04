@@ -14,99 +14,50 @@ import { SavingHistoryComponent } from './pages/saving-history/saving-history.co
 import { MovementsByTypeComponent } from './pages/movements-by-type/movements-by-type.component';
 import { AverageComponent } from './pages/average/average.component';
 
-// export const routes: Routes = [
-//   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-//   { path: 'expenses', component: ExpensesComponent, canActivate: [authGuard] },
-//   { path: 'incomes', component: IncomesComponent, canActivate: [authGuard] },
-//   {
-//     path: 'new-expense',
-//     component: NewExpenseComponent,
-//     canActivate: [authGuard],
-//   },
-//   {
-//     path: 'new-income',
-//     component: NewIncomeComponent,
-//     canActivate: [authGuard],
-//   },
-//   {
-//     path: 'edit-expense',
-//     component: EditExpenseComponent,
-//     canActivate: [authGuard],
-//   },
-//   {
-//     path: 'edit-income',
-//     component: EditIncomeComponent,
-//     canActivate: [authGuard],
-//   },
-//   { path: 'options', component: OptionsComponent, canActivate: [authGuard] },
-//   {
-//     path: 'filter-by-dates',
-//     component: FilterByDatesComponent,
-//     canActivate: [authGuard],
-//   },
-//   {
-//     path: 'movements-by-type',
-//     component: MovementsByTypeComponent,
-//     canActivate: [authGuard],
-//   },
-  // {
-  //   path: 'saving-history',
-  //   component: SavingHistoryComponent,
-  //   canActivate: [authGuard],
-  // },
-  // {
-  //   path: 'average',
-  //   component: AverageComponent,
-  //   canActivate: [authGuard],
-  // },
-//   { path: 'login', component: LoginComponent },
-//   { path: '**', redirectTo: 'home' },
-
-// ];
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'expenses', component: ExpensesComponent },
-  { path: 'incomes', component: IncomesComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'expenses', component: ExpensesComponent, canActivate: [authGuard] },
+  { path: 'incomes', component: IncomesComponent, canActivate: [authGuard] },
   {
     path: 'new-expense',
     component: NewExpenseComponent,
-    
+    canActivate: [authGuard],
   },
   {
     path: 'new-income',
     component: NewIncomeComponent,
-    
+    canActivate: [authGuard],
   },
   {
     path: 'edit-expense',
     component: EditExpenseComponent,
-    
+    canActivate: [authGuard],
   },
   {
     path: 'edit-income',
     component: EditIncomeComponent,
-    
+    canActivate: [authGuard],
   },
-  { path: 'options', component: OptionsComponent },
+  { path: 'options', component: OptionsComponent, canActivate: [authGuard] },
   {
     path: 'filter-by-dates',
     component: FilterByDatesComponent,
-    
+    canActivate: [authGuard],
   },
   {
     path: 'movements-by-type',
     component: MovementsByTypeComponent,
-    
+    canActivate: [authGuard],
   },
   {
     path: 'saving-history',
     component: SavingHistoryComponent,
-    
+    canActivate: [authGuard],
   },
   {
     path: 'average',
     component: AverageComponent,
-    
+    canActivate: [authGuard],
   },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'home' },
