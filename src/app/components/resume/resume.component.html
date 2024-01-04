@@ -7,14 +7,17 @@
   <div class="container__data">
     <div class="container__data__text">
       <span class="txt">Saldo{{ " " }} {{dayFormated}}</span>
-      <span class="total__quantity">
-        
-        
-        
+      <!-- <span class="total__quantity">
         {{total$ |async}} PLN
-      
-      
+      </span> -->
+      <span [ngClass]="{
+        'total__quantity': (total)==0,
+        'txt-green': (total ) > 0,
+        'txt-red': (total  ) < 0
+      }">
+        {{total$ | async}} PLN
       </span>
+
     </div>
     <div class="container__data__img">
       <img src="/assets/resumen.png" alt="">

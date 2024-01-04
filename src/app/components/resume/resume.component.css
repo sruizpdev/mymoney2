@@ -27,6 +27,21 @@
   font-weight: bold;
   font-size: 25px;
   margin-bottom: 10px;
+
+}
+
+.txt-green {
+  color: var(--green);
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.txt-red {
+  color: red;
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .container__data {
@@ -53,6 +68,7 @@
 }
 
 .negative-total {
-  color: red;  /* Cambia el color del texto a rojo para valores negativos */
+  color: red;
+  /* Cambia el color del texto a rojo para valores negativos */
   /* Agrega cualquier otro estilo que desees para valores negativos */
 }

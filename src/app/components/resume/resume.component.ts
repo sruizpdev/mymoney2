@@ -16,10 +16,10 @@ export class ResumeComponent {
   firstDayOfMonth: string = '';
   dayFormated: string = '';
 
-  total$!: Observable<number>;
+  total$: Observable<number>;
   totalExpenses$!: Observable<number>;
   totalIncomes$!: Observable<number>;
-
+total:number=0
   constructor(private generalService: GeneralService) {
     const date = generalService.getDate();
     this.currentDay = `${date.year}-${date.month}-${date.day}`;
@@ -38,5 +38,8 @@ export class ResumeComponent {
     this.total$ = combineLatest([this.totalIncomes$, this.totalExpenses$]).pipe(
       map(([totalIncomes, totalExpenses]) => +(totalIncomes - totalExpenses).toFixed(2))
     );
+    this.total$.subscribe(res=>{
+      this.total= res
+    })
   }
 }
