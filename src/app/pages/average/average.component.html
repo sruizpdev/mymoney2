@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <img class="img-small" src="/assets/dinero.png" alt="" />
+      <img class="img-small" src="/assets/olla.png" alt="" />
       <div class="col-text">
         <p class="txt-small">Cantidad disponible:</p>
         <p class="amount">
@@ -36,11 +36,10 @@
   <div class="title">Deslice para calcular</div>
 
   <div class="range-bar-container">
-    <div class="range-bar-quantities">
-      <p>0 PLN</p>
-      <p>{{ maxValue }}{{' '}}PLN</p>
+    <div class="man">
+      <img src="/assets/pobre.png" alt="" />
+      <p>0</p><p>PLN</p>
     </div>
-
     <input
       class="range-bar"
       type="range"
@@ -50,5 +49,9 @@
       [(ngModel)]="valueBar"
       (ngModelChange)="calcAverage()"
     />
+    <div class="man">
+      <img src="/assets/rico.png" alt="" />
+      <p>{{ maxValue }}</p><p>PLN</p>
+    </div>
   </div>
 </div>

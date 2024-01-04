@@ -3,7 +3,7 @@
 }
 
 .title {
-  margin: 20px 10px;
+  margin: 10px;
 
 }
 
@@ -37,23 +37,42 @@
 
 .range-bar-container {
   margin: 0px 10px;
-}
-
-.range-bar-quantities {
   display: flex;
-  justify-content: space-between;
-  margin: 0px 10px;
- 
+  justify-content: space-around;
+  gap: 10px;
+   
+  align-items: center;
+}
+.range-bar-container img {
+  width: 50px;
+}
+.man p{
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .range-bar {
-  width: 80%;
- 
- 
-  height: 2px;
+  width: 100%;
+  height: 1px;
   appearance: none;
   background-color: var(--green);
   cursor: pointer;
+
+ 
+  
+}
+
+.range-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px; /* Ancho de la imagen del pulgar */
+  height: 40px; /* Altura de la imagen del pulgar */
+  background-image: url('/assets/corredor.png'); /* Ruta de tu imagen PNG */
+  background-size: cover; /* Ajusta según tus necesidades */
+  cursor: pointer;
+ 
 }
 
 .amount {
