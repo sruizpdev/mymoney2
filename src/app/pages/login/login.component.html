@@ -1,69 +1,67 @@
 <div class="container">
-    <div class="header">
-      <p>Bienvenido a <span>myMoney2</span></p>
-      <img src="/assets/hucha.png" alt="My Money" />
-  
-      <div class="quote__container">
-        <p class="quote">
-          "La verdadera riqueza no está en cuánto ganas, sino en cuánto puedes ahorrar y gestionar sabiamente"
-        </p>
-        <cite class="author">- Sergiotto</cite>
-      </div>
-    </div>
-  
-    @if(loginForm.get('email')?.hasError('required')&&loginForm.get('email')?.touched)
-    {
-    <p class="err__text">Introduzca su email</p>
-    }
-    @if(loginForm.get('email')?.hasError('email')&&loginForm.get('email')?.touched)
-    {
-    <p class="err__text">Email no válido</p>
-    }
-    @if(loginForm.get('password')?.hasError('required')&&loginForm.get('password')?.touched){
-    <p class="err__text">Introduce su contraseña</p>
-    } @if (loginErr) {
-    <p class="err__text">Usuario o contraseña incorrecto</p>
-    }
-    <div class="login__container">
-      <div class="title">
-        <p>Login</p>
-      </div>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="row__form">
-          <!-- <fa-icon [icon]="faUser"></fa-icon> -->
-          <img class="icon" src="/assets/user.png" alt="">
-          <input
-            class="input__form"
-            type="email"
-            id="email"
-            name="email"
-            formControlName="email"
-            placeholder="Ingrese su email"
-          
-          />
-        </div>
-        <div class="row__form">
-          <!-- <fa-icon [icon]="faLock"></fa-icon> -->
-          <img class="icon" src="/assets/cerrar.png" alt="">
-          <input
-            class="input__form"
-            type="password"
-            id="password"
-            name="password"
-            formControlName="password"
-            placeholder="*******"
-            
-          />
-        </div>
-        <div class="row__form row__button">
-          <input
-            class="input__submit"
-            type="submit"
-            value="Entrar"
-            [disabled]="loginForm.invalid"
-          />
-        </div>
-      </form>
+  <div class="header">
+    <p>Bienvenido a <span>myMoney2</span></p>
+    <img src="/assets/hucha.png" alt="My Money" />
+
+    <div class="quote__container">
+      <p class="quote">
+        "La verdadera riqueza no está en cuánto ganas, sino en cuánto puedes
+        ahorrar y gestionar sabiamente"
+      </p>
+      <cite class="author">- Sergiotto</cite>
     </div>
   </div>
-  
+
+  @if(loginForm.get('email')?.hasError('required')&&loginForm.get('email')?.touched)
+  {
+  <p class="err__text">Introduzca su email</p>
+  }
+  @if(loginForm.get('email')?.hasError('email')&&loginForm.get('email')?.touched)
+  {
+  <p class="err__text">Email no válido</p>
+  }
+  @if(loginForm.get('password')?.hasError('required')&&loginForm.get('password')?.touched){
+  <p class="err__text">Introduce su contraseña</p>
+  } @if (loginErr) {
+  <p class="err__text">Usuario o contraseña incorrecto</p>
+  }
+  <div class="login__container">
+    <div class="title">
+      <p>Login</p>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="row__form">
+        <!-- <fa-icon [icon]="faUser"></fa-icon> -->
+        <img class="icon" src="/assets/user.png" alt="" />
+        <input
+          class="input__form"
+          type="email"
+          id="email"
+          name="email"
+          formControlName="email"
+          placeholder="Ingrese su email"
+        />
+      </div>
+      <div class="row__form">
+        <!-- <fa-icon [icon]="faLock"></fa-icon> -->
+        <img class="icon" src="/assets/cerrar.png" alt="" />
+        <input
+          class="input__form"
+          type="password"
+          id="password"
+          name="password"
+          formControlName="password"
+          placeholder="*******"
+        />
+      </div>
+      <div class="row__form row__button">
+        <input
+          class="input__submit"
+          type="submit"
+          value="Entrar"
+          [disabled]="loginForm.invalid"
+        />
+      </div>
+    </form>
+  </div>
+</div>

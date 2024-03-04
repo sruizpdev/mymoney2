@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -19,8 +19,14 @@ import { GeneralService } from '../../general.service';
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent {
- 
+export class LoginComponent implements OnInit {
+
+
+  ngOnInit(): void {
+    if (this.generalService.isLogged()) {
+      this.router.navigate(['/home'])
+    }
+  }
   loginErr = false;
   generalService = inject(GeneralService);
   router = inject(Router);
