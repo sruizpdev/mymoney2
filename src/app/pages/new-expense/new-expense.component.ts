@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
 export class NewExpenseComponent {
   router = inject(Router);
   errMsg: string = '';
-  constructor(private generalService: GeneralService) {}
+  constructor(private generalService: GeneralService) { }
 
   newExpenseForm = new FormGroup({
     amount: new FormControl('', [
@@ -84,7 +84,7 @@ export class NewExpenseComponent {
       this.generalService
         .addNewExpense(data)
         .then(() => {
-          this.router.navigate(['/expenses']);
+          this.router.navigate(['/home']);
         })
         .catch((err) => {
           console.log(err);

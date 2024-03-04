@@ -20,7 +20,7 @@ import { GeneralService } from '../../general.service';
 export class NewIncomeComponent {
   router = inject(Router);
   errMsg: string = '';
-  constructor(private generalService: GeneralService) {}
+  constructor(private generalService: GeneralService) { }
 
   newIncomeForm = new FormGroup({
     amount: new FormControl('', [
@@ -79,7 +79,7 @@ export class NewIncomeComponent {
       this.generalService
         .addNewIncome(data)
         .then(() => {
-          this.router.navigate(['/incomes']);
+          this.router.navigate(['/home']);
         })
         .catch((err) => {
           console.log(err);
