@@ -21,9 +21,9 @@
   <p class="err__text">Email no válido</p>
   }
   @if(loginForm.get('password')?.hasError('required')&&loginForm.get('password')?.touched){
-  <p class="err__text">Introduce su contraseña</p>
+  <p class="err__text">Introduzca su contraseña</p>
   } @if (loginErr) {
-  <p class="err__text">Usuario o contraseña incorrecto</p>
+  <p class="err__text">Usuario o contraseña incorrecta</p>
   }
   <div class="login__container">
     <div class="title">
